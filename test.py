@@ -34,6 +34,10 @@ class MyWidget(QWidget):
 
         self.button1.clicked.connect(self.greetings)
 
+        self.audioRecorder = QAudioRecorder
+        self.layout.addWidget(self.audioRecorder)
+
+
 
     def greetings(self):
         print ("Hello {}".format(self.edit.text()))
