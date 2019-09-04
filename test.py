@@ -1,7 +1,7 @@
 import sys
 import random
 from PySide2.QtWidgets import (QApplication, QLabel, QPushButton,
-                               QVBoxLayout, QWidget)
+                               QVBoxLayout, QWidget, QLineEdit)
 from PySide2.QtCore import Slot, Qt
 
 class MyWidget(QWidget):
@@ -23,15 +23,41 @@ class MyWidget(QWidget):
         # Connecting the signal
         self.button.clicked.connect(self.magic)
 
+        # CreateMenus()
+
+        self.edit = QLineEdit("Write my name here..")
+        self.button1 = QPushButton("Show Greetings")
+
+        self.layout.addWidget(self.edit)
+        self.layout.addWidget(self.button1)
+        # Set dialog layout
+
+        self.button1.clicked.connect(self.greetings)
+
+
+    def greetings(self):
+        print ("Hello {}".format(self.edit.text()))
+
     @Slot()
-    def magic(self):
+    def magic(self):    
         self.text.setText(random.choice(self.hello))
+
+    # def CreateMenus():
+    #     fileMenu = menuBar().addMenu("Settings")
+
+    # def SettingsOpt():
+    #     Settings.setMenu(menu)
+    #     Settings.setPopupMode(QToolButton.MenuButtonPopup)
+    #     Settings.addAction("Settings", SettingsAction())
+
+    # def SettingsAction():
+    #     self.text = QLabel("SettingsAction")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
 
     widget = MyWidget()
-    widget.resize(800, 600)
+    widget.showMaximized();
     widget.show()
 
     sys.exit(app.exec_())
