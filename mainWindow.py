@@ -17,8 +17,3 @@ class MainWindow(QWidget):
 
         self.gadgetLayout.addWidget(audioRecorder)
         self.conversationLayout.addWidget(dialog)
-
-        self.mainLayout.addLayout(self.conversationLayout)
-        self.mainLayout.addLayout(self.gadgetLayout)
-
-        self.setLayout(self.mainLayout)
