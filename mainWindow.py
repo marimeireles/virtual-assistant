@@ -1,16 +1,24 @@
-import sys
-import random
+from audioManager import AudioRecorder
+from dialog import Dialog
+
 from PySide2.QtWidgets import *
-from PySide2.QtMultimedia import *
 
 class MainWindow(QWidget):
-    def __init__(self):
-        QWidget.__init__(self)
+    def __init__(self, audioRecorder, dialog):
+        super(MainWindow, self).__init__()
 
-        self.conversationLayout = QVBoxLayout()
-        self.gadgetLayout = QVBoxLayout()
+        self.audioRecorder = audioRecorder
+        self.dialog = dialog
 
-class AudioRecorderTest(QMediaObject):
-    def __init__(self):
-        QWidget.__init__(self)
-        self.audioRecorder = QAudioRecorder()
+        self.mainLayout = QHBoxLayout()
+
+        self.conversationLayout = QHBoxLayout()
+        self.gadgetLayout = QHBoxLayout()
+
+        self.gadgetLayout.addWidget(audioRecorder)
+        self.conversationLayout.addWidget(dialog)
+
+        self.mainLayout.addLayout(self.conversationLayout)
+        self.mainLayout.addLayout(self.gadgetLayout)
+
+        self.setLayout(self.mainLayout)
