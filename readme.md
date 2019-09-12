@@ -1,18 +1,16 @@
-Backend:
+# Running the va
 
--a way to record sound
-	the user has to press a button, play the sound
-	once the sound is recorded somewhere it triggers a sign to call the deepspeech stuff
--take the audio file and pass it to the deepspeech thing
--transform it in TTS
--use the info to trigger some action that's gonna affect my interface
+https://blog.rasa.com/how-to-build-a-voice-assistant-with-open-source-rasa-and-mozilla-tools/
 
-Frontend:
+# NLP
 
--divide the screen in two
-	one side shows gadgets
-	one side shows conversation
-	graphics for the conversation
-		baloons
-		user graphic and va graphic
-		each line is a QHLayout?
+https://rasa.com/docs/rasa/nlu/about/
+https://github.com/RasaHQ/rasa-demo
+https://github.com/RasaHQ/rasa/blob/master/rasa/core/channels/socketio.py
+https://towardsdatascience.com/a-chatbot-from-future-building-an-end-to-end-conversational-assistant-with-rasa-ai-51a1c93dabf2
+https://vimeo.com/254777331
+
+# Creating the threading system
+
+https://realpython.com/intro-to-python-threading/
+https://gist.github.com/reuben/931c3da7388eee0c81c1f1cadce0a0fd
