@@ -12,6 +12,7 @@ class Dialog(QWidget):
         self.userText = ""
         self.machineText = ""
 
+        self.chatLayout = QH
         self.setLayout(self.userLayout)
 
     def showUserMessage(self):
