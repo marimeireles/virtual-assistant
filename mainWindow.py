@@ -12,8 +12,13 @@ class MainWindow(QWidget):
 
         self.mainLayout = QHBoxLayout()
 
-        self.conversationLayout = QHBoxLayout()
         self.gadgetLayout = QHBoxLayout()
+        self.conversationLayout = QHBoxLayout()
 
         self.gadgetLayout.addWidget(self.audioRecorder)
         self.conversationLayout.addWidget(self.dialog)
+
+        self.mainLayout.addLayout(self.conversationLayout)
+        self.mainLayout.addLayout(self.gadgetLayout)
+
+        self.setLayout(self.mainLayout)

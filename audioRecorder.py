@@ -7,7 +7,7 @@ from PySide2.QtWidgets import *
 from PySide2.QtMultimedia import *
 
 class AudioRecorder(QWidget):
-    def __init__(self):
+    def __init__(self, dialog):
         super(AudioRecorder, self).__init__()
 
         self.format = QAudioFormat()
@@ -52,7 +52,8 @@ class AudioRecorder(QWidget):
             print('off')
             self.isRecording = False
             self.recorder.stop()
-            print('Transcription:', self.ds.finishStream(self.sctx))
+            self.dialog.userText = self.ds.finishStream(self.sctx)
+            print('Transcription:', self.dialog.userText)
 
     @Slot()
     def DSPredict(self):

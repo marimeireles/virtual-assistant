@@ -1,19 +1,26 @@
-from PySide2.QtWidgets import QWidget, QVBoxLayout, QLabel
-from PySide2.QtCore import Signal
+from PySide2.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel
+from PySide2.QtCore import Signal, QUrl
+
+#all of this needs to be inside a box with a scroll mode
 
 class Dialog(QWidget):
-    # change = Signal
     def __init__(self):
         super(Dialog, self).__init__()
+        self.chatLayout = QVBoxLayout()
 
         self.userLayout = QVBoxLayout()
         self.machineLayout = QVBoxLayout()
 
-        self.userText = ""
-        self.machineText = ""
+        self.chatLayout.addLayout(self.userLayout)
+        self.chatLayout.addLayout(self.machineLayout)
 
-        self.chatLayout = QH
-        self.setLayout(self.userLayout)
+        self.userText = QUrl()
+        self.machineText = QUrl()
+
+        # self.userLayout.setAlignment(Qt.AlignRight)
+        # self.machineLayout.setAlignment(Qt.AlignLeft)
+
+        self.setLayout(self.chatLayout)
 
     def showUserMessage(self):
         self.userQLabel = QLabel()

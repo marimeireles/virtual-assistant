@@ -14,3 +14,7 @@ https://vimeo.com/254777331
 
 https://realpython.com/intro-to-python-threading/
 https://gist.github.com/reuben/931c3da7388eee0c81c1f1cadce0a0fd
+
+# Interesting more or less related stuff
+
+http://www.peterbloem.nl/blog/transformers
