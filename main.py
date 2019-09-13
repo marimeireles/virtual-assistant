@@ -5,16 +5,25 @@ from PySide2.QtCore import QUrl
 
 from mainWindow import MainWindow
 from dialog import Dialog
-from audioManager import AudioRecorder
+from audioManager import AudioRecorder, InferenceThread
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
 
     dialog = Dialog()
-    audioRecorder = AudioRecorder(dialog)
+    inferenceThread = InferenceThread()
+    audioRecorder = AudioRecorder(dialog, inferenceThread)
 
     widget = MainWindow(dialog, audioRecorder)
     widget.showMaximized();
     widget.show()
 
-    sys.exit(app.exec_())
+    # Start inference thread
+    inferenceThread.start()
+
+    ret = app.exec_()
+
+    # Signal to inference thread that the application is quitting
+    inferenceThread.setQuit()
+
+    sys.exit(ret)

@@ -1,3 +1,4 @@
+
 # Running the va
 
 https://blog.rasa.com/how-to-build-a-voice-assistant-with-open-source-rasa-and-mozilla-tools/
@@ -9,6 +10,8 @@ https://github.com/RasaHQ/rasa-demo
 https://github.com/RasaHQ/rasa/blob/master/rasa/core/channels/socketio.py
 https://towardsdatascience.com/a-chatbot-from-future-building-an-end-to-end-conversational-assistant-with-rasa-ai-51a1c93dabf2
 https://vimeo.com/254777331
+https://github.com/MycroftAI
+https://chat.mycroft.ai/login
 
 # Creating the threading system
 

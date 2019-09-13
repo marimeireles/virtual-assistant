@@ -1,5 +1,5 @@
 from PySide2.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel
-from PySide2.QtCore import Signal, QUrl
+from PySide2.QtCore import Signal, QUrl, Qt
 
 #all of this needs to be inside a box with a scroll mode
 
@@ -17,8 +17,8 @@ class Dialog(QWidget):
         self.userText = QUrl()
         self.machineText = QUrl()
 
-        # self.userLayout.setAlignment(Qt.AlignRight)
-        # self.machineLayout.setAlignment(Qt.AlignLeft)
+        self.userLayout.setAlignment(Qt.AlignRight)
+        # self.machineLayout.setAlignment(QtCore.Qt.AlignLeft)
 
         self.setLayout(self.chatLayout)
 
