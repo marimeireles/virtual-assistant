@@ -10,13 +10,19 @@ from audioManager import AudioRecorder, InferenceThread
 if __name__ == "__main__":
     app = QApplication(sys.argv)
 
+    # view = QQuickView()
+    # url = QUrl("main.qml")
+    # view.setSource(url)
+
     dialog = Dialog()
     inferenceThread = InferenceThread()
     audioRecorder = AudioRecorder(dialog, inferenceThread)
 
     widget = MainWindow(dialog, audioRecorder)
+    # widget.createWindowContainer(view)
     widget.showMaximized();
     widget.show()
+    # view.show()
 
     # Start inference thread
     inferenceThread.start()

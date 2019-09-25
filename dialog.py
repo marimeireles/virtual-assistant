@@ -14,11 +14,11 @@ class Dialog(QWidget):
         self.chatLayout.addLayout(self.userLayout)
         self.chatLayout.addLayout(self.machineLayout)
 
-        self.userText = QUrl()
-        self.machineText = QUrl()
+        self.userText = ""
+        self.machineText = ""
 
         self.userLayout.setAlignment(Qt.AlignRight)
-        # self.machineLayout.setAlignment(QtCore.Qt.AlignLeft)
+        self.machineLayout.setAlignment(Qt.AlignLeft)
 
         self.setLayout(self.chatLayout)
 
