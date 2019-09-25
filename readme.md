@@ -1,23 +1,56 @@
+# How to use this project
 
-# Running the va
+1. Create a virtual environment using your fav tool
+2. Using a Python >= 3 `pip install PySide2`
+3. `git clone https://github.com/RasaHQ/rasa-demo.git
+cd rasa-demo`
+4. `pip install -e .`
+5. rasa train --augmentation 0
+6. `pip3 install deepspeech`
+7. `wget https://github.com/mozilla/DeepSpeech/releases/download/v0.5.1/deepspeech-0.5.1-models.tar.gz
+tar xvfz deepspeech-0.5.1-models.tar.gz`
+8. Run `python main.py`
 
-https://blog.rasa.com/how-to-build-a-voice-assistant-with-open-source-rasa-and-mozilla-tools/
+# License
 
-# NLP
+Please note that this code is under Qt License.
 
-https://rasa.com/docs/rasa/nlu/about/
-https://github.com/RasaHQ/rasa-demo
-https://github.com/RasaHQ/rasa/blob/master/rasa/core/channels/socketio.py
-https://towardsdatascience.com/a-chatbot-from-future-building-an-end-to-end-conversational-assistant-with-rasa-ai-51a1c93dabf2
-https://vimeo.com/254777331
-https://github.com/MycroftAI
-https://chat.mycroft.ai/login
+Copyright (C) 2019 The Qt Company Ltd.
+Contact: http://www.qt.io/licensing/
 
-# Creating the threading system
+This file is part of the provisioning scripts of the Qt Toolkit.
 
-https://realpython.com/intro-to-python-threading/
-https://gist.github.com/reuben/931c3da7388eee0c81c1f1cadce0a0fd
+$QT_BEGIN_LICENSE:LGPL21$
+Commercial License Usage
+Licensees holding valid commercial Qt licenses may use this file in
+accordance with the commercial license agreement provided with the
+Software or, alternatively, in accordance with the terms contained in
+a written agreement between you and The Qt Company. For licensing terms
+and conditions see http://www.qt.io/terms-conditions. For further
+information use the contact form at http://www.qt.io/contact-us.
 
-# Interesting more or less related stuff
+GNU Lesser General Public License Usage
+Alternatively, this file may be used under the terms of the GNU Lesser
+General Public License version 2.1 or version 3 as published by the Free
+Software Foundation and appearing in the file LICENSE.LGPLv21 and
+LICENSE.LGPLv3 included in the packaging of this file. Please review the
+following information to ensure the GNU Lesser General Public License
+requirements will be met: https://www.gnu.org/licenses/lgpl.html and
+http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
 
-http://www.peterbloem.nl/blog/transformers
+As a special exception, The Qt Company gives you certain additional
+rights. These rights are described in The Qt Company LGPL Exception
+version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+
+# Resources that might be useful to me
+
+## NLP
+
+* https://rasa.com/docs/rasa/nlu/about/
+* https://github.com/RasaHQ/rasa-demo
+* https://vimeo.com/254777331
+* https://github.com/MycroftAI
+
+## Interesting more or less related stuff
+
+*http://www.peterbloem.nl/blog/transformers
