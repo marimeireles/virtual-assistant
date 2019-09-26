@@ -49,8 +49,11 @@ version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
 * https://rasa.com/docs/rasa/nlu/about/
 * https://github.com/RasaHQ/rasa-demo
 * https://vimeo.com/254777331
-* https://github.com/MycroftAI
 
 ## Interesting more or less related stuff
 
 *http://www.peterbloem.nl/blog/transformers
+
+## Cute stuff
+
+* Threads: https://mayaposch.wordpress.com/2011/11/01/how-to-really-truly-use-qthreads-the-full-explanation/
