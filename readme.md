@@ -50,9 +50,17 @@ version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
 * https://github.com/RasaHQ/rasa-demo
 * https://vimeo.com/254777331
 
+## The channels problem
+
+* https://rasa.com/docs/rasa/api/agent/
+* https://stackoverflow.com/questions/51019885/using-rasa-nlu-model-with-python-api-instead-of-http-server
+* https://forum.rasa.com/t/need-some-help-posting-to-socket-io-server/1422
+* https://forum.rasa.com/t/how-to-create-custom-channel-instead-of-socketio-channel/13711
+* https://github.com/RasaHQ/rasa/tree/master/rasa/core/channels
+
 ## Interesting more or less related stuff
 
-*http://www.peterbloem.nl/blog/transformers
+* http://www.peterbloem.nl/blog/transformers
 
 ## Cute stuff
 
