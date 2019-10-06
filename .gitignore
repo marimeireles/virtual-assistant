@@ -1,5 +1,7 @@
 vi/
 __pycache__/
+.python-version
 deepspeech-0.5.1-models/
 rasa-demo/
+env/
 test.py
