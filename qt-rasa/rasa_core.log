@@ -1,0 +1,608 @@
+2019-10-04 12:38:35,320 [ERROR]  Exception occurred while handling uri: 'http://localhost:5002/'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL / not found
+2019-10-04 12:38:35,420 [ERROR]  Exception occurred while handling uri: 'http://localhost:5002/favicon.ico'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /favicon.ico not found
+2019-10-04 12:46:12,760 [ERROR]  Exception occurred while handling uri: 'http://localhost:5002/api'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /api not found
+2019-10-04 12:46:12,824 [ERROR]  Exception occurred while handling uri: 'http://localhost:5002/favicon.ico'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /favicon.ico not found
+2019-10-04 12:46:17,001 [ERROR]  Exception occurred while handling uri: 'http://localhost:5002/'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL / not found
+2019-10-04 12:46:27,916 [ERROR]  Exception occurred while handling uri: 'http://localhost:5002/webhook'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /webhook not found
+2019-10-04 12:46:47,675 [ERROR]  Exception occurred while handling uri: 'http://localhost:5002/webhook'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /webhook not found
+2019-10-04 12:46:53,868 [ERROR]  Exception occurred while handling uri: 'http://localhost:5002/'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL / not found
+2019-10-04 13:09:42,766 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 446, in _get
+    raise method_not_supported
+sanic.exceptions.MethodNotSupported: Method POST not allowed for URL /
+2019-10-04 13:09:54,157 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhook'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /webhook not found
+2019-10-04 13:10:03,077 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/test'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /test not found
+2019-10-04 13:10:06,591 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/test'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /test not found
+2019-10-04 13:10:06,701 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/favicon.ico'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /favicon.ico not found
+2019-10-04 13:10:11,820 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/test'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /test not found
+2019-10-04 13:10:26,240 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 446, in _get
+    raise method_not_supported
+sanic.exceptions.MethodNotSupported: Method POST not allowed for URL /
+2019-10-04 13:11:12,838 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 446, in _get
+    raise method_not_supported
+sanic.exceptions.MethodNotSupported: Method POST not allowed for URL /
+2019-10-04 13:11:40,756 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/webhook'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 446, in _get
+    raise method_not_supported
+sanic.exceptions.MethodNotSupported: Method GET not allowed for URL /webhooks/rest/webhook
+2019-10-04 13:11:53,132 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/webhook'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/request.py", line 149, in load_json
+    self.parsed_json = loads(self.body)
+ValueError: Unexpected character found when decoding 'false'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 917, in handle_request
+    response = await response
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/rasa/core/channels/channel.py", line 430, in receive
+    sender_id = await self._extract_sender(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/rasa/core/channels/channel.py", line 395, in _extract_sender
+    return req.json.get("sender", None)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/request.py", line 143, in json
+    self.load_json()
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/request.py", line 153, in load_json
+    raise InvalidUsage("Failed when parsing body as json")
+sanic.exceptions.InvalidUsage: Failed when parsing body as json
+2019-10-04 13:23:04,019 [ERROR]  Unable to start server
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/server.py", line 745, in serve
+    http_server = loop.run_until_complete(server_coroutine)
+  File "uvloop/loop.pyx", line 1417, in uvloop.loop.Loop.run_until_complete
+  File "uvloop/loop.pyx", line 1686, in create_server
+OSError: [Errno 48] error while attempting to bind on address ('0.0.0.0', 5005): address already in use
+2019-10-04 13:23:20,094 [ERROR]  Unable to start server
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/server.py", line 745, in serve
+    http_server = loop.run_until_complete(server_coroutine)
+  File "uvloop/loop.pyx", line 1417, in uvloop.loop.Loop.run_until_complete
+  File "uvloop/loop.pyx", line 1686, in create_server
+OSError: [Errno 48] error while attempting to bind on address ('0.0.0.0', 5005): address already in use
+2019-10-04 13:23:33,943 [ERROR]  Unable to start server
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/server.py", line 745, in serve
+    http_server = loop.run_until_complete(server_coroutine)
+  File "uvloop/loop.pyx", line 1417, in uvloop.loop.Loop.run_until_complete
+  File "uvloop/loop.pyx", line 1686, in create_server
+OSError: [Errno 48] error while attempting to bind on address ('0.0.0.0', 5005): address already in use
+2019-10-04 16:13:48,950 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/favicon.ico'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /favicon.ico not found
+2019-10-04 16:14:01,417 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/webhooks'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /webhooks/rest/webhooks not found
+2019-10-04 16:33:28,342 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/webhook'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /webhooks/rest/webhook not found
+2019-10-04 16:33:50,006 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/webhook'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /webhooks/rest/webhook not found
+2019-10-04 16:34:41,763 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/webhooks'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /webhooks/rest/webhooks not found
+2019-10-04 16:34:47,234 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /webhooks/rest/ not found
+2019-10-04 16:35:11,606 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /webhooks/rest/ not found
+2019-10-04 16:35:12,307 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /webhooks/rest/ not found
+2019-10-04 16:35:12,521 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /webhooks/rest/ not found
+2019-10-04 16:35:15,073 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /webhooks/rest/ not found
+2019-10-04 16:35:15,630 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /webhooks/rest/ not found
+2019-10-04 16:36:37,086 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /webhooks/rest/ not found
+2019-10-04 16:36:37,283 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /webhooks/rest/ not found
+2019-10-04 16:36:37,451 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /webhooks/rest/ not found
+2019-10-04 16:36:37,683 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /webhooks/rest/ not found
+2019-10-04 16:37:28,123 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/webhook'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /webhooks/rest/webhook not found
+2019-10-04 16:38:21,228 [DEBUG]  Available web server routes: 
+/conversations/<conversation_id>/messages          POST                           add_message
+/conversations/<conversation_id>/tracker/events    POST                           append_event
+/webhooks/rasa                                     GET                            custom_webhook_RasaChatInput.health
+/webhooks/rasa/webhook                             POST                           custom_webhook_RasaChatInput.receive
+/model/test/intents                                POST                           evaluate_intents
+/model/test/stories                                POST                           evaluate_stories
+/conversations/<conversation_id>/execute           POST                           execute_action
+/domain                                            GET                            get_domain
+/                                                  GET                            hello
+/model                                             PUT                            load_model
+/model/parse                                       POST                           parse
+/conversations/<conversation_id>/predict           POST                           predict
+/conversations/<conversation_id>/tracker/events    PUT                            replace_events
+/conversations/<conversation_id>/story             GET                            retrieve_story
+/conversations/<conversation_id>/tracker           GET                            retrieve_tracker
+/status                                            GET                            status
+/model/predict                                     POST                           tracker_predict
+/model/train                                       POST                           train
+/model                                             DELETE                         unload_model
+/version                                           GET                            version
+2019-10-04 16:38:32,470 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/webhook'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /webhooks/rest/webhook not found
+2019-10-04 16:39:07,790 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/webhooks'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /webhooks/rest/webhooks not found
+2019-10-04 16:39:11,618 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/webhook'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /webhooks/rest/webhook not found
+2019-10-04 16:41:31,444 [DEBUG]  Available web server routes: 
+/conversations/<conversation_id>/messages          POST                           add_message
+/conversations/<conversation_id>/tracker/events    POST                           append_event
+/webhooks/rasa                                     GET                            custom_webhook_RasaChatInput.health
+/webhooks/rasa/webhook                             POST                           custom_webhook_RasaChatInput.receive
+/model/test/intents                                POST                           evaluate_intents
+/model/test/stories                                POST                           evaluate_stories
+/conversations/<conversation_id>/execute           POST                           execute_action
+/domain                                            GET                            get_domain
+/                                                  GET                            hello
+/model                                             PUT                            load_model
+/model/parse                                       POST                           parse
+/conversations/<conversation_id>/predict           POST                           predict
+/conversations/<conversation_id>/tracker/events    PUT                            replace_events
+/conversations/<conversation_id>/story             GET                            retrieve_story
+/conversations/<conversation_id>/tracker           GET                            retrieve_tracker
+/status                                            GET                            status
+/model/predict                                     POST                           tracker_predict
+/model/train                                       POST                           train
+/model                                             DELETE                         unload_model
+/version                                           GET                            version
+2019-10-04 16:41:40,351 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/webhooks'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /webhooks/rest/webhooks not found
+2019-10-04 16:42:48,898 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rasa/webhook'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 446, in _get
+    raise method_not_supported
+sanic.exceptions.MethodNotSupported: Method GET not allowed for URL /webhooks/rasa/webhook
+2019-10-04 16:42:49,015 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/favicon.ico'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 893, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/router.py", line 469, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /favicon.ico not found
+2019-10-04 16:45:18,398 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rasa/webhook'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 917, in handle_request
+    response = await response
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/rasa/core/channels/channel.py", line 430, in receive
+    sender_id = await self._extract_sender(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/rasa/core/channels/rasa_chat.py", line 55, in _extract_sender
+    user = await self._check_token(req.args.get("token", default=None))
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/rasa/core/channels/rasa_chat.py", line 35, in _check_token
+    url, headers=headers, timeout=DEFAULT_REQUEST_TIMEOUT
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/aiohttp/client.py", line 1012, in __aenter__
+    self._resp = await self._coro
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/aiohttp/client.py", line 502, in _request
+    resp = await req.send(conn)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/aiohttp/client_reqrep.py", line 629, in send
+    await writer.write_headers(status_line, self.headers)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/aiohttp/http_writer.py", line 111, in write_headers
+    buf = _serialize_headers(status_line, headers)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/aiohttp/http_writer.py", line 160, in _py_serialize_headers
+    [k + ': ' + v + '\r\n' for k, v in headers.items()])
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/aiohttp/http_writer.py", line 160, in <listcomp>
+    [k + ': ' + v + '\r\n' for k, v in headers.items()])
+TypeError: can only concatenate str (not "NoneType") to str
+2019-10-04 16:46:50,599 [DEBUG]  Available web server routes: 
+/conversations/<conversation_id>/messages          POST                           add_message
+/conversations/<conversation_id>/tracker/events    POST                           append_event
+/webhooks/rasa                                     GET                            custom_webhook_RasaChatInput.health
+/webhooks/rasa/webhook                             POST                           custom_webhook_RasaChatInput.receive
+/model/test/intents                                POST                           evaluate_intents
+/model/test/stories                                POST                           evaluate_stories
+/conversations/<conversation_id>/execute           POST                           execute_action
+/domain                                            GET                            get_domain
+/                                                  GET                            hello
+/model                                             PUT                            load_model
+/model/parse                                       POST                           parse
+/conversations/<conversation_id>/predict           POST                           predict
+/conversations/<conversation_id>/tracker/events    PUT                            replace_events
+/conversations/<conversation_id>/story             GET                            retrieve_story
+/conversations/<conversation_id>/tracker           GET                            retrieve_tracker
+/status                                            GET                            status
+/model/predict                                     POST                           tracker_predict
+/model/train                                       POST                           train
+/model                                             DELETE                         unload_model
+/version                                           GET                            version
+2019-10-04 16:50:09,362 [DEBUG]  Available web server routes: 
+/conversations/<conversation_id>/messages          POST                           add_message
+/conversations/<conversation_id>/tracker/events    POST                           append_event
+/webhooks/rasa                                     GET                            custom_webhook_RasaChatInput.health
+/webhooks/rasa/webhook                             POST                           custom_webhook_RasaChatInput.receive
+/model/test/intents                                POST                           evaluate_intents
+/model/test/stories                                POST                           evaluate_stories
+/conversations/<conversation_id>/execute           POST                           execute_action
+/domain                                            GET                            get_domain
+/                                                  GET                            hello
+/model                                             PUT                            load_model
+/model/parse                                       POST                           parse
+/conversations/<conversation_id>/predict           POST                           predict
+/conversations/<conversation_id>/tracker/events    PUT                            replace_events
+/conversations/<conversation_id>/story             GET                            retrieve_story
+/conversations/<conversation_id>/tracker           GET                            retrieve_tracker
+/status                                            GET                            status
+/model/predict                                     POST                           tracker_predict
+/model/train                                       POST                           train
+/model                                             DELETE                         unload_model
+/version                                           GET                            version
+2019-10-04 16:50:45,916 [DEBUG]  Available web server routes: 
+/conversations/<conversation_id>/messages          POST                           add_message
+/conversations/<conversation_id>/tracker/events    POST                           append_event
+/webhooks/rasa                                     GET                            custom_webhook_RasaChatInput.health
+/webhooks/rasa/webhook                             POST                           custom_webhook_RasaChatInput.receive
+/model/test/intents                                POST                           evaluate_intents
+/model/test/stories                                POST                           evaluate_stories
+/conversations/<conversation_id>/execute           POST                           execute_action
+/domain                                            GET                            get_domain
+/                                                  GET                            hello
+/model                                             PUT                            load_model
+/model/parse                                       POST                           parse
+/conversations/<conversation_id>/predict           POST                           predict
+/conversations/<conversation_id>/tracker/events    PUT                            replace_events
+/conversations/<conversation_id>/story             GET                            retrieve_story
+/conversations/<conversation_id>/tracker           GET                            retrieve_tracker
+/status                                            GET                            status
+/model/predict                                     POST                           tracker_predict
+/model/train                                       POST                           train
+/model                                             DELETE                         unload_model
+/version                                           GET                            version
+2019-10-04 16:51:09,848 [DEBUG]  Available web server routes: 
+/conversations/<conversation_id>/messages          POST                           add_message
+/conversations/<conversation_id>/tracker/events    POST                           append_event
+/webhooks/rasa                                     GET                            custom_webhook_RasaChatInput.health
+/webhooks/rasa/webhook                             POST                           custom_webhook_RasaChatInput.receive
+/model/test/intents                                POST                           evaluate_intents
+/model/test/stories                                POST                           evaluate_stories
+/conversations/<conversation_id>/execute           POST                           execute_action
+/domain                                            GET                            get_domain
+/                                                  GET                            hello
+/model                                             PUT                            load_model
+/model/parse                                       POST                           parse
+/conversations/<conversation_id>/predict           POST                           predict
+/conversations/<conversation_id>/tracker/events    PUT                            replace_events
+/conversations/<conversation_id>/story             GET                            retrieve_story
+/conversations/<conversation_id>/tracker           GET                            retrieve_tracker
+/status                                            GET                            status
+/model/predict                                     POST                           tracker_predict
+/model/train                                       POST                           train
+/model                                             DELETE                         unload_model
+/version                                           GET                            version
+2019-10-04 16:53:28,127 [DEBUG]  Available web server routes: 
+/conversations/<conversation_id>/messages          POST                           add_message
+/conversations/<conversation_id>/tracker/events    POST                           append_event
+/webhooks/rasa                                     GET                            custom_webhook_RasaChatInput.health
+/webhooks/rasa/webhook                             POST                           custom_webhook_RasaChatInput.receive
+/model/test/intents                                POST                           evaluate_intents
+/model/test/stories                                POST                           evaluate_stories
+/conversations/<conversation_id>/execute           POST                           execute_action
+/domain                                            GET                            get_domain
+/                                                  GET                            hello
+/model                                             PUT                            load_model
+/model/parse                                       POST                           parse
+/conversations/<conversation_id>/predict           POST                           predict
+/conversations/<conversation_id>/tracker/events    PUT                            replace_events
+/conversations/<conversation_id>/story             GET                            retrieve_story
+/conversations/<conversation_id>/tracker           GET                            retrieve_tracker
+/status                                            GET                            status
+/model/predict                                     POST                           tracker_predict
+/model/train                                       POST                           train
+/model                                             DELETE                         unload_model
+/version                                           GET                            version
+2019-10-04 16:54:31,356 [DEBUG]  Available web server routes: 
+/conversations/<conversation_id>/messages          POST                           add_message
+/conversations/<conversation_id>/tracker/events    POST                           append_event
+/webhooks/rasa                                     GET                            custom_webhook_RasaChatInput.health
+/webhooks/rasa/webhook                             POST                           custom_webhook_RasaChatInput.receive
+/webhooks/rest                                     GET                            custom_webhook_RestInput.health
+/webhooks/rest/webhook                             POST                           custom_webhook_RestInput.receive
+/model/test/intents                                POST                           evaluate_intents
+/model/test/stories                                POST                           evaluate_stories
+/conversations/<conversation_id>/execute           POST                           execute_action
+/domain                                            GET                            get_domain
+/                                                  GET                            hello
+/model                                             PUT                            load_model
+/model/parse                                       POST                           parse
+/conversations/<conversation_id>/predict           POST                           predict
+/conversations/<conversation_id>/tracker/events    PUT                            replace_events
+/conversations/<conversation_id>/story             GET                            retrieve_story
+/conversations/<conversation_id>/tracker           GET                            retrieve_tracker
+/status                                            GET                            status
+/model/predict                                     POST                           tracker_predict
+/model/train                                       POST                           train
+/model                                             DELETE                         unload_model
+/version                                           GET                            version
+2019-10-04 16:54:44,831 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rasa/webhook'
+Traceback (most recent call last):
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/sanic/app.py", line 917, in handle_request
+    response = await response
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/rasa/core/channels/channel.py", line 430, in receive
+    sender_id = await self._extract_sender(request)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/rasa/core/channels/rasa_chat.py", line 55, in _extract_sender
+    user = await self._check_token(req.args.get("token", default=None))
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/rasa/core/channels/rasa_chat.py", line 35, in _check_token
+    url, headers=headers, timeout=DEFAULT_REQUEST_TIMEOUT
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/aiohttp/client.py", line 1012, in __aenter__
+    self._resp = await self._coro
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/aiohttp/client.py", line 502, in _request
+    resp = await req.send(conn)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/aiohttp/client_reqrep.py", line 629, in send
+    await writer.write_headers(status_line, self.headers)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/aiohttp/http_writer.py", line 111, in write_headers
+    buf = _serialize_headers(status_line, headers)
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/aiohttp/http_writer.py", line 160, in _py_serialize_headers
+    [k + ': ' + v + '\r\n' for k, v in headers.items()])
+  File "/Users/mariana/Development/virtual-assistant/env/lib/python3.7/site-packages/aiohttp/http_writer.py", line 160, in <listcomp>
+    [k + ': ' + v + '\r\n' for k, v in headers.items()])
+TypeError: can only concatenate str (not "NoneType") to str
