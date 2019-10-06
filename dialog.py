@@ -36,7 +36,7 @@ class Dialog(QWidget):
             'Content-type': 'application/json',
         }
 
-        data = "{\"sender\": \"user1\", \"message\": \" " + self.userText + " hello\"}"
+        data = "{\"sender\": \"user1\", \"message\": \" " + self.userText + "\"}"
 
         response = requests.post('http://localhost:5005/webhooks/rest/webhook', headers=headers, data=data)
 
