@@ -61,6 +61,7 @@ static const char *conversationsTableName = "Conversations";
 static void createTable()
 {
     if (QSqlDatabase::database().tables().contains(conversationsTableName)) {
+        printf("it actually created a table");
         // The table already exists; we don't need to do anything.
         return;
     }
