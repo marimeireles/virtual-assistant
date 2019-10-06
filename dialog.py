@@ -22,11 +22,28 @@ class Dialog(QWidget):
 
         self.setLayout(self.chatLayout)
 
+
     def showUserMessage(self):
         self.userQLabel = QLabel()
         self.userQLabel.setText(self.userText)
 
         self.userLayout.addWidget(self.userQLabel)
+
+
+        import requests
+
+        headers = {
+            'Content-type': 'application/json',
+        }
+
+        data = "{\"sender\": \"user1\", \"message\": \" " + self.userText + " hello\"}"
+
+        response = requests.post('http://localhost:5005/webhooks/rest/webhook', headers=headers, data=data)
+
+        # r = requests.get(url = 'http://localhost:5005/') 
+        print(response.text)
+        # print(r.text)
+        print('🌸')
 
     def setUserMessage(self, string):
         self.userText = string
@@ -36,3 +53,5 @@ class Dialog(QWidget):
 
     def showMachineMessage():
         pass
+
+

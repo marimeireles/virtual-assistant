@@ -108,9 +108,6 @@ class AudioRecorder(QWidget): #should it be like this?
             print('off')
             self.isRecording = False
             self.recorder.stop()
-            # self.dialog.setUserMessage(self.onTranscriptionFinished)
-            # self.dialog.showUserMessage()
-            # print('Transcription: ', self.dialog.getUserMessage())
             self.inferenceThread.sendCmd(('finish',))
 
     @Slot()

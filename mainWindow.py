@@ -1,11 +1,13 @@
 from audioManager import AudioRecorder
 from dialog import Dialog
 
-from PySide2.QtWidgets import *
+from PySide2.QtWidgets import QWidget, QHBoxLayout
 
 class MainWindow(QWidget):
     def __init__(self, audioRecorder, dialog):
         super(MainWindow, self).__init__()
+
+        # self.setStyleSheet("background-color: white;")
 
         self.audioRecorder = audioRecorder
         self.dialog = dialog
