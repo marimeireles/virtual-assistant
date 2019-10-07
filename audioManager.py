@@ -6,9 +6,9 @@ import threading
 
 from deepspeech import Model
 
-from PySide2.QtCore import *
-from PySide2.QtWidgets import *
-from PySide2.QtMultimedia import *
+from PySide2.QtCore import QObject, Signal, Slot, QUrl
+from PySide2.QtWidgets import QPushButton, QWidget, QVBoxLayout, QSpacerItem
+from PySide2.QtMultimedia import QAudioInput, QAudioFormat
 
 N_FEATURES = 25
 N_CONTEXT = 9
@@ -75,6 +75,7 @@ class AudioRecorder(QWidget): #should it be like this?
 
         self.dialog = dialog
 
+        #why would I do this? should I do this? I don't think I need to do it, so should I do it? id think so
         self.inferenceThread = inferenceThread
 
         self.inferenceThread.finished.connect(self.onTranscriptionFinished)
@@ -90,8 +91,13 @@ class AudioRecorder(QWidget): #should it be like this?
 
         self.isRecording = False
         self.recordButton = QPushButton("Record")
-        self.recordingLayout = QVBoxLayout()
+        self.recordButton.setStyleSheet("background-color:red;")
+        self.setStyleSheet("background-color:black;")
+
+        container = QWidget(self)
+        self.recordingLayout = QVBoxLayout(container)
         self.recordingLayout.addWidget(self.recordButton)
+        container.setStyleSheet("background-color:black;")
         self.setLayout(self.recordingLayout)
 
         self.recordButton.clicked.connect(self.toggleRecord)
@@ -99,11 +105,11 @@ class AudioRecorder(QWidget): #should it be like this?
     @Slot()
     def toggleRecord(self):
         if self.isRecording == False:
+            print('on 🌈')
             self.isRecording = True
             self.inferenceThread.sendCmd(('start',))
             self.recordedMessage = self.recorder.start()
             self.recordedMessage.readyRead.connect(self.readFromIODevide)
-            print('on')
         else:
             print('off')
             self.isRecording = False
@@ -119,5 +125,6 @@ class AudioRecorder(QWidget): #should it be like this?
     @Slot(str)
     def onTranscriptionFinished(self, result):
         self.dialog.setUserMessage(result)
-        self.dialog.showUserMessage()
-        print('Transcription:', result)
+        print('Transcription: ', result)
+        self.dialog.dealWithUserMessage()
+        self.dialog.dealWithMachineMessage()
