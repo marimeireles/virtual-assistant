@@ -21,6 +21,8 @@ from PySide2.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel
 from PySide2.QtCore import Signal, QUrl, Qt
 from PySide2.QtMultimedia import QSound
 
+from sqlDialog import SqlConversationModel
+
 MODEL_PATH = './tts_model/best_model.pth.tar'
 CONFIG_PATH = './tts_model/config.json'
 OUT_FILE = 'tts_out.wav'
@@ -53,11 +55,15 @@ class Dialog(QWidget):
         self.tts = TTS()
         self.model, self.ap, MODEL_PATH, CONFIG, use_cuda  = self.tts.load_tts_model()
 
+        #Creates the Sql nidek that interacts with QML
+        self.sqlConversationModel = SqlConversationModel()
+
     def dealWithUserMessage(self):
         ''' Shows user's message in screen and send it to the ChatBot '''
         self.userQLabel = QLabel()
         self.userQLabel.setText(self.userText)
         self.userLayout.addWidget(self.userQLabel)
+        self.sqlConversationModel.sendMessage("machine", self.userText)
 
         self.sendUserMessageToChatBot(self.userText)
 
