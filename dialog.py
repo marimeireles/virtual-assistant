@@ -55,7 +55,7 @@ class Dialog(QWidget):
         self.tts = TTS()
         self.model, self.ap, MODEL_PATH, CONFIG, use_cuda  = self.tts.load_tts_model()
 
-        #Creates the Sql nidek that interacts with QML
+        #Creates the Sql model that interacts with QML
         self.sqlConversationModel = SqlConversationModel()
 
     def dealWithUserMessage(self):

@@ -49,7 +49,12 @@ if __name__ == "__main__":
     inferenceThread = InferenceThread()
     audioRecorder = AudioRecorder(dialog, inferenceThread)
 
-    app.exec_()
+    app = app.exec_()
+
+    # Signal to inference thread that the application is quitting
+    inferenceThread.setQuit()
+
+    sys.exit(app)
 
 ### this is working if I just want to run things the way I'm currently doing
 #remember to erase the stuff in the dialog thing, where I'm adding sql modules

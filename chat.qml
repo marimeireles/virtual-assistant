@@ -12,10 +12,15 @@ ApplicationWindow {
     visible: true
         Label {
             id: pageTitle
-            text: "Foobar"
+            text: ""
             font.pixelSize: 20
             anchors.centerIn: parent
         }
+Page {
+    anchors.fill: parent
+    id: root
+
+    property string inConversationWith
 
     ColumnLayout {
         anchors.fill: parent
@@ -53,7 +58,7 @@ ApplicationWindow {
 
                         Label {
                             id: messageText
-                            text: model.message
+                            text: "nothing" //model.message "nothing"
                             color: sentByMe ? "black" : "white"
                             anchors.fill: parent
                             anchors.margins: 12
@@ -92,11 +97,21 @@ ApplicationWindow {
                     text: qsTr("Send")
                     enabled: messageField.length > 0
                     onClicked: {
-                        listView.model.sendMessage("Foobar", messageField.text);
+                        listView.model.sendMessage("machine", messageField.text);
                         messageField.text = "";
                     }
                 }
+        Button {
+            id: myButton
+            objectName: "myButton"
+            x: 10
+            y: 10
+            text: "Record"
+            onClicked: toggleRecord()
+        }
+
             }
         }
     }
+}
 }

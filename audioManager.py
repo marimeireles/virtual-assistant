@@ -99,6 +99,9 @@ class AudioRecorder(QWidget): #should it be like this?
         self.recordingLayout.addWidget(self.recordButton)
         container.setStyleSheet("background-color:black;")
         self.setLayout(self.recordingLayout)
+        # rect = QObject()
+        # rect.item.findChild("myButton");
+        # QObject *rect = item->findChild<QObject*>("myButton");
 
         self.recordButton.clicked.connect(self.toggleRecord)
 

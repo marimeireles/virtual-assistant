@@ -34,6 +34,8 @@ class SqlConversationModel(QObject):
         self.table.setEditStrategy(QSqlTableModel.OnManualSubmit)
 
     def getRecipient(self):
+        print('🦊')
+        # print(self.recipient)
         return self.recipient
 
     def setRecipient(self, recipient):
@@ -47,9 +49,8 @@ class SqlConversationModel(QObject):
         select()
 
         emit(recipientChanged())
-
+    recipient = property(getRecipient, setRecipient, str)
         ##there is something wrong here I should check the cpp
-    recipient = Property(str, getRecipient, setRecipient)
 
     def data(self, index, role):
         if role < Qt.UserRole:
@@ -68,16 +69,22 @@ class SqlConversationModel(QObject):
 
     @Slot(str, str)
     def sendMessage(self, recipient, message):
+        # recipient = Property(str, getRecipient, setRecipient)
+        print("message: " + message)
         newRecord = self.table.record()
         newRecord.setValue("author", "Me")
         newRecord.setValue("recipient", recipient)
+        print("recipient: " + recipient)
         import datetime
         timestamp = datetime.datetime.now()
         newRecord.setValue("timestamp", timestamp)
+        # self.message = message
         newRecord.setValue("message", message)
         if not self.table.insertRecord(self.table.rowCount(), newRecord):
             print("Failed to send message:" + lastError().text())
             return
+        else:
+            print('it worked you 🌸')
 
         self.table.submitAll()
 
