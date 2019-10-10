@@ -1,3 +1,6 @@
+TTS/
+tts_model/
+tts_out.wav
 vi/
 __pycache__/
 .python-version

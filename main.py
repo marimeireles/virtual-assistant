@@ -5,11 +5,12 @@ from PySide2.QtQuick import QQuickView
 from PySide2.QtCore import QUrl, QDateTime, Qt, QStandardPaths, QDir
 from PySide2.QtGui import QGuiApplication
 from PySide2.QtSql import QSqlDatabase
-from PySide2.QtQml import QQmlApplicationEngine
+from PySide2.QtQml import QQmlApplicationEngine, qmlRegisterType
 
 from mainWindow import MainWindow
 from dialog import Dialog
 from audioManager import AudioRecorder, InferenceThread
+from sqlDialog import SqlConversationModel
 
 def connectToDatabase():
     database = QSqlDatabase.database()
@@ -37,7 +38,7 @@ if __name__ == "__main__":
     app = QApplication()
 
     # what is this
-    # qmlRegisterType<SqlConversationModel>("io.qt.examples.chattutorial", 1, 0, "SqlConversationModel");
+    qmlRegisterType(SqlConversationModel, "io.qt.examples.chattutorial", 1, 0, "SqlConversationModel")
 
     connectToDatabase()
 
