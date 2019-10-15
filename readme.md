@@ -2,14 +2,19 @@
 
 1. Create a virtual environment using your fav tool
 2. Using a Python >= 3 `pip install PySide2`
-3. `git clone https://github.com/RasaHQ/rasa-demo.git
-cd rasa-demo`
+3. `git clone https://github.com/RasaHQ/rasa-demo.git && cd rasa-demo`
 4. `pip install -e .`
-5. rasa train --augmentation 0
+5. `rasa train --augmentation 0`
 6. `pip3 install deepspeech`
 7. `wget https://github.com/mozilla/DeepSpeech/releases/download/v0.5.1/deepspeech-0.5.1-models.tar.gz
 tar xvfz deepspeech-0.5.1-models.tar.gz`
-8. Run `python main.py`
+8. `git clone https://github.com/mozilla/TTS.git && cd TTS && git checkout db7f3d3`
+9. `python setup.py develop`
+10. Download from [here](https://drive.google.com/drive/folders/1GU8WGix98WrR3ayjoiirmmbLUZzwg4n0) these two files: config.json and best_model.th.tar
+11. Create a directory inside your main directory called tts_model and put the recently downloaded stuff there
+12. Run the server that will control the actions: `docker run -p 8000:8000 rasa/duckling`
+13. Run Rasa itself `rasa run --enable-api`
+14. Run `python main.py` to open the GUI
 
 # License
 
