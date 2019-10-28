@@ -1,9 +1,13 @@
+import datetime
+
 from PySide2.QtSql import QSqlDatabase, QSqlQuery, QSqlTableModel
-from PySide2.QtCore import QObject, Qt, Property, Slot
+from PySide2.QtCore import QObject, Qt, Property, Slot, Signal
 
 conversationsTableName = "Conversations"
 
 def createTable():
+    if conversationsTableName in QSqlDatabase.database().tables():
+        return
 
     query = QSqlQuery()
     if not query.exec_(
@@ -19,23 +23,27 @@ def createTable():
     print('#######')
     print(query)
 
+    query.exec("INSERT INTO Conversations VALUES('Me', 'machine', '2016-01-07T14:36:06', 'Hello!')");
+    query.exec("INSERT INTO Conversations VALUES('machine', 'Me', '2016-01-07T14:36:16', 'Good afternoon.')");
+
+
 class SqlConversationModel(QObject):
+    recipientChanged = Signal()
     def __init__(self, parent=QSqlTableModel):
         super(SqlConversationModel, self).__init__()
+        
         self.table = QSqlTableModel()
-        print('🌈🌈🌈')
-        tableExists = self.table.database().tables()
-        if(tableExists[0]):
-            pass
-        else:
-            createTable()
+
+        createTable()
         self.table.setTable(conversationsTableName)
         self.table.setSort(2, Qt.DescendingOrder)
         self.table.setEditStrategy(QSqlTableModel.OnManualSubmit)
 
-    def getRecipient(self):
-        print('🦊')
-        # print(self.recipient)
+        recipient = Property(str, self.recipient, notify=self.recipientChanged)
+        print('Table was loaded succesfully 🌈🌈🌈\n')
+
+
+    def recipient():
         return self.recipient
 
     def setRecipient(self, recipient):
@@ -44,13 +52,11 @@ class SqlConversationModel(QObject):
 
         self.recipient = recipient
 
-        filterString = ("(recipient = '{}' AND author = 'Me') OR (recipient = 'Me' AND author='{}')").format(m_recipient)
+        filterString = ("(recipient = '{}' AND author = 'Me') OR (recipient = 'Me' AND author='{}')").format(self.recipient)
         setFilter(filterString)
         select()
 
         emit(recipientChanged())
-    recipient = property(getRecipient, setRecipient, str)
-        ##there is something wrong here I should check the cpp
 
     def data(self, index, role):
         if role < Qt.UserRole:
@@ -69,22 +75,19 @@ class SqlConversationModel(QObject):
 
     @Slot(str, str)
     def sendMessage(self, recipient, message):
-        # recipient = Property(str, getRecipient, setRecipient)
-        print("message: " + message)
+        print("message to send: " + message)
         newRecord = self.table.record()
         newRecord.setValue("author", "Me")
         newRecord.setValue("recipient", recipient)
-        print("recipient: " + recipient)
-        import datetime
+        print("recipient receiving the message you just sent: " + recipient)
         timestamp = datetime.datetime.now()
         newRecord.setValue("timestamp", timestamp)
-        # self.message = message
         newRecord.setValue("message", message)
         if not self.table.insertRecord(self.table.rowCount(), newRecord):
             print("Failed to send message:" + lastError().text())
             return
         else:
-            print('it worked you 🌸')
+            print('Message was succesfully inserted in table 🌸')
 
         self.table.submitAll()
 

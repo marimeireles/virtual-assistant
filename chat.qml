@@ -3,10 +3,12 @@ import QtQuick 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
 
-import io.qt.examples.chattutorial 1.0
+import SqlConversationModel 1.0
+
 
 ApplicationWindow {
-    title: qsTr("Test")
+    id: window
+    title: qsTr("Voice Assistant")
     width: 640
     height: 480
     visible: true
@@ -19,8 +21,6 @@ ApplicationWindow {
 Page {
     anchors.fill: parent
     id: root
-
-    property string inConversationWith
 
     ColumnLayout {
         anchors.fill: parent
@@ -46,19 +46,14 @@ Page {
                     spacing: 6
                     anchors.right: sentByMe ? parent.right : undefined
 
-                    Image {
-                        id: avatar
-                        source: !sentByMe ? "qrc:/" + model.author.replace(" ", "_") + ".png" : ""
-                    }
-
                     Rectangle {
-                        width: Math.min(messageText.implicitWidth + 24, listView.width - avatar.width - messageRow.spacing)
+                        width: Math.min(messageText.implicitWidth + 24, listView.width - messageRow.spacing)
                         height: messageText.implicitHeight + 24
                         color: sentByMe ? "lightgrey" : "steelblue"
 
                         Label {
                             id: messageText
-                            text: "nothing" //model.message "nothing"
+                            text: model.message
                             color: sentByMe ? "black" : "white"
                             anchors.fill: parent
                             anchors.margins: 12
@@ -107,7 +102,7 @@ Page {
             x: 10
             y: 10
             text: "Record"
-            onClicked: toggleRecord()
+            // onClicked: root.StackView.view.push("chat.qml", { inConversationWith: model.display })
         }
 
             }
