@@ -56,6 +56,7 @@ class InferenceThread(QObject):
                 continue
 
             if cmd == 'start':
+                print("starts data stream")
                 # 'start' means create a new stream
                 stream = self.model.setupStream()
             elif cmd == 'data':
@@ -75,8 +76,8 @@ class AudioRecorder(QWidget): #should it be like this?
 
         self.dialog = dialog
 
-        #why would I do this? should I do this? I don't think I need to do it, so should I do it? id think so
         self.inferenceThread = inferenceThread
+        print("self.inferenceThread ", self.inferenceThread)
 
         self.inferenceThread.finished.connect(self.onTranscriptionFinished)
 
@@ -90,20 +91,6 @@ class AudioRecorder(QWidget): #should it be like this?
         self.recorder = QAudioInput(self.format, self)
 
         self.isRecording = False
-        self.recordButton = QPushButton("Record")
-        self.recordButton.setStyleSheet("background-color:red;")
-        self.setStyleSheet("background-color:black;")
-
-        container = QWidget(self)
-        self.recordingLayout = QVBoxLayout(container)
-        self.recordingLayout.addWidget(self.recordButton)
-        container.setStyleSheet("background-color:black;")
-        self.setLayout(self.recordingLayout)
-        # rect = QObject()
-        # rect.item.findChild("myButton");
-        # QObject *rect = item->findChild<QObject*>("myButton");
-
-        self.recordButton.clicked.connect(self.toggleRecord)
 
     @Slot()
     def toggleRecord(self):
@@ -114,7 +101,7 @@ class AudioRecorder(QWidget): #should it be like this?
             self.recordedMessage = self.recorder.start()
             self.recordedMessage.readyRead.connect(self.readFromIODevide)
         else:
-            print('off')
+            print('off 💀')
             self.isRecording = False
             self.recorder.stop()
             self.inferenceThread.sendCmd(('finish',))
@@ -127,7 +114,7 @@ class AudioRecorder(QWidget): #should it be like this?
 
     @Slot(str)
     def onTranscriptionFinished(self, result):
-        self.dialog.setUserMessage(result)
+        self.dialog.set_user_message(result)
         print('Transcription: ', result)
-        self.dialog.dealWithUserMessage()
-        self.dialog.dealWithMachineMessage()
+        self.dialog.process_user_message()
+        self.dialog.process_machine_message()

@@ -21,71 +21,44 @@ from PySide2.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel
 from PySide2.QtCore import Signal, QUrl, Qt
 from PySide2.QtMultimedia import QSound
 
-from sqlDialog import SqlConversationModel
-
 MODEL_PATH = './tts_model/best_model.pth.tar'
 CONFIG_PATH = './tts_model/config.json'
 OUT_FILE = 'tts_out.wav'
 CONFIG = load_config(CONFIG_PATH)
 use_cuda = False
 
-#all of this needs to be inside a box with a scroll mode
-#and the dialogs should be inside a list widget
-
 class Dialog(QWidget):
-    def __init__(self):
+    def __init__(self, sqlConversationModel):
         super(Dialog, self).__init__()
-        self.chatLayout = QVBoxLayout()
-
-        self.userLayout = QVBoxLayout()
-        self.machineLayout = QVBoxLayout()
-
-        self.chatLayout.addLayout(self.userLayout)
-        self.chatLayout.addLayout(self.machineLayout)
+        self.sqlConversationModel = sqlConversationModel
 
         self.userText = ""
         self.machineText = ""
-
-        self.userLayout.setAlignment(Qt.AlignRight)
-        self.machineLayout.setAlignment(Qt.AlignLeft)
-
-        self.setLayout(self.chatLayout)
 
         #Creates the TTS model
         self.tts = TTS()
         self.model, self.ap, MODEL_PATH, CONFIG, use_cuda  = self.tts.load_tts_model()
 
-        #Creates the Sql model that interacts with QML
-        self.sqlConversationModel = SqlConversationModel()
-
-    def dealWithUserMessage(self):
+    def process_user_message(self):
         ''' Shows user's message in screen and send it to the ChatBot '''
-        self.userQLabel = QLabel()
-        self.userQLabel.setText(self.userText)
-        self.userLayout.addWidget(self.userQLabel)
-        self.sqlConversationModel.sendMessage("machine", self.userText)
+        print("❤️ process_user_message ", self.userText)
 
-        self.sendUserMessageToChatBot(self.userText)
+        self.send_user_msg_to_chatbot(self.userText)
 
-    def setUserMessage(self, string):
+    def set_user_message(self, string):
         self.userText = string
 
-    def sendUserMessageToChatBot(self, message):
+    def send_user_msg_to_chatbot(self, message):
         headers = {'Content-type': 'application/json'}
         data = "{\"sender\": \"user1\", \"message\": \" " + message + "\"}"
         self.response = requests.post('http://localhost:5005/webhooks/rest/webhook', headers=headers, data=data)
 
-    def getUserMessage(self):
-        return self.userText
-
-    def dealWithMachineMessage(self):
+    def process_machine_message(self):
         '''Shows machine's message and reproduce its voice'''
         self.textResponse = json.loads(self.response.text)[0]["text"]
-        self.machineQLabel = QLabel()
-        self.machineQLabel.setText(self.textResponse)
-        self.machineLayout.addWidget(self.machineQLabel)
-
         print("Machine: " + self.textResponse)
+        #do I have to expose this content to the qml and in the qml I have to add this in the table? I think so
+        self.sqlConversationModel.sendMachineMessage("Me", self.textResponse)
 
         self.tts.tts_predict(self.model, MODEL_PATH, self.textResponse, CONFIG, use_cuda, self.ap, OUT_FILE)
         QSound.play(OUT_FILE);

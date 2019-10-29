@@ -1,7 +1,7 @@
 import datetime
 
-from PySide2.QtSql import QSqlDatabase, QSqlQuery, QSqlTableModel
-from PySide2.QtCore import QObject, Qt, Property, Slot, Signal
+from PySide2.QtSql import QSqlDatabase, QSqlQuery, QSqlTableModel, QSqlRecord
+from PySide2.QtCore import QObject, Qt, Property, Slot, Signal, QByteArray
 
 conversationsTableName = "Conversations"
 
@@ -23,21 +23,16 @@ def createTable():
     print('#######')
     print(query)
 
-    query.exec("INSERT INTO Conversations VALUES('Me', 'machine', '2016-01-07T14:36:06', 'Hello!')");
-    query.exec("INSERT INTO Conversations VALUES('machine', 'Me', '2016-01-07T14:36:16', 'Good afternoon.')");
 
-
-class SqlConversationModel(QObject):
+class SqlConversationModel(QSqlTableModel):
     recipientChanged = Signal()
-    def __init__(self, parent=QSqlTableModel):
-        super(SqlConversationModel, self).__init__()
-        
-        self.table = QSqlTableModel()
+    def __init__(self, parent=None):
+        super(SqlConversationModel, self).__init__(parent)
 
         createTable()
-        self.table.setTable(conversationsTableName)
-        self.table.setSort(2, Qt.DescendingOrder)
-        self.table.setEditStrategy(QSqlTableModel.OnManualSubmit)
+        self.setTable(conversationsTableName)
+        self.setSort(2, Qt.DescendingOrder)
+        self.setEditStrategy(QSqlTableModel.OnManualSubmit)
 
         recipient = Property(str, self.recipient, notify=self.recipientChanged)
         print('Table was loaded succesfully 🌈🌈🌈\n')
@@ -59,35 +54,59 @@ class SqlConversationModel(QObject):
         emit(recipientChanged())
 
     def data(self, index, role):
+        # print("inside data index:", index, " role", role)
         if role < Qt.UserRole:
-            return data(index, role)
+            return QSqlTableModel.data(self, index, role)
 
-        self.sqlRecord = record(index.row())
-        return self.sqlRecord.value(role - Qt.UserRole)
+        sqlRecord = QSqlRecord()
+        sqlRecord = self.record(index.row())
+        return sqlRecord.value(role - Qt.UserRole)
 
+    # @Slot(result='hash')
     def roleNames(self):
-        self.names
-        self.names[Qt.UserRole] = "author"
-        self.names[Qt.UserRole + 1] = "recipient"
-        self.names[Qt.UserRole + 2] = "timestamp"
-        self.names[Qt.UserRole + 3] = "message"
-        return self.names
+        # print("inside roleNames")
+        names = {}
+        author = "author".encode()
+        recipient = "recipient".encode()
+        timestamp = "timestamp".encode()
+        message = "message".encode()
+        names[hash(Qt.UserRole)] = author
+        names[hash(Qt.UserRole + 1)] = recipient
+        names[hash(Qt.UserRole + 2)] = timestamp
+        names[hash(Qt.UserRole + 3)] = message
+        return names
 
     @Slot(str, str)
     def sendMessage(self, recipient, message):
         print("message to send: " + message)
-        newRecord = self.table.record()
+        newRecord = self.record()
         newRecord.setValue("author", "Me")
         newRecord.setValue("recipient", recipient)
         print("recipient receiving the message you just sent: " + recipient)
         timestamp = datetime.datetime.now()
         newRecord.setValue("timestamp", timestamp)
         newRecord.setValue("message", message)
-        if not self.table.insertRecord(self.table.rowCount(), newRecord):
+        if not self.insertRecord(self.rowCount(), newRecord):
             print("Failed to send message:" + lastError().text())
             return
         else:
-            print('Message was succesfully inserted in table 🌸')
+            print('userMessage was succesfully inserted in table 🌸')
 
-        self.table.submitAll()
+    def sendMachineMessage(self, recipient, message):
+        print("message to send: " + message)
+        newRecord = self.record()
+        newRecord.setValue("author", "machine")
+        newRecord.setValue("recipient", recipient)
+        print("recipient receiving the message you just sent: " + recipient)
+        timestamp = datetime.datetime.now()
+        newRecord.setValue("timestamp", timestamp)
+        newRecord.setValue("message", message)
+        if not self.insertRecord(self.rowCount(), newRecord):
+            print("Failed to send message:" + lastError().text())
+            return
+        else:
+            print('Mahcine Message was succesfully inserted in table 🌸')
+
+
+        self.submitAll()
 
