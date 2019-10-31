@@ -41,14 +41,13 @@ class Dialog(QWidget):
 
     def process_user_message(self):
         ''' Shows user's message in screen and send it to the ChatBot '''
-        print("❤️ process_user_message ", self.userText)
-
         self.send_user_msg_to_chatbot(self.userText)
 
     def set_user_message(self, string):
         self.userText = string
 
     def send_user_msg_to_chatbot(self, message):
+        self.sqlConversationModel.send_message("machine", message, "Me")
         headers = {'Content-type': 'application/json'}
         data = "{\"sender\": \"user1\", \"message\": \" " + message + "\"}"
         self.response = requests.post('http://localhost:5005/webhooks/rest/webhook', headers=headers, data=data)
@@ -57,8 +56,7 @@ class Dialog(QWidget):
         '''Shows machine's message and reproduce its voice'''
         self.textResponse = json.loads(self.response.text)[0]["text"]
         print("Machine: " + self.textResponse)
-        #do I have to expose this content to the qml and in the qml I have to add this in the table? I think so
-        self.sqlConversationModel.sendMachineMessage("Me", self.textResponse)
+        self.sqlConversationModel.send_message("Me", self.textResponse, "machine")
 
         self.tts.tts_predict(self.model, MODEL_PATH, self.textResponse, CONFIG, use_cuda, self.ap, OUT_FILE)
         QSound.play(OUT_FILE);

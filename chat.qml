@@ -2,9 +2,7 @@ import QtQuick.Window 2.2
 import QtQuick 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
-
-import SqlConversationModel 1.0
-// import AudioRecorder 1.0
+import QtGraphicalEffects 1.13
 
 //main layout
 ApplicationWindow {
@@ -26,76 +24,67 @@ ApplicationWindow {
         height: 960
         anchors.left: parent.left
         id: widget
+        Image {
+            id: sine
+            anchors.top: parent.top
+            anchors.margins: 12
+            x: (parent.width - width) / 2
+            y: (parent.height - height) / 2
+            source: "sine.png"
+            visible: false
+        }
+
+        ShaderEffect {
+            id: shader
+            anchors.fill: sine
+            property variant source: sine
+            property real frequency: 4
+            property real amplitude: 0.3
+            property real time: 0.5 
+            NumberAnimation on time {
+                id: shadertime
+                from: 0; to: Math.PI*2; duration: 10000; loops: Animation.Infinite
+            }
+            fragmentShader: "
+                            varying highp vec2 qt_TexCoord0;
+                            uniform sampler2D source;
+                            uniform lowp float qt_Opacity;
+                            uniform highp float frequency;
+                            uniform highp float amplitude;
+                            uniform highp float time;
+                            void main() {
+                                highp vec2 texCoord = qt_TexCoord0;
+                                texCoord.y = amplitude * sin(time * frequency + texCoord.x * 6.283185) + texCoord.y;
+                                gl_FragColor = texture2D(source, texCoord) * qt_Opacity;
+                            }"
+        }
 
         Image {
+            id: mic
             anchors.bottom: parent.bottom
             anchors.margins: 12
             x: (parent.width - width) / 2
             y: (parent.height - height) / 2
             source: "mic.png"
 
-            //fazer uma imagenzinha bonitinha e onclicked mudar a imagem pra ter umas ondinha saindo dela?
-
-            //no topo eu ainda posso colocar as sine wave
             MouseArea {
                 anchors.fill: parent
-                onClicked: { audioRecorder.toggleRecord() }
+                ShaderEffect {
+                    property variant source: sine
+                    property real frequency: 0
+                    }
+                onClicked:
+                {
+                    audioRecorder.toggle_record();
+                    if (shadertime.paused) {
+                        shadertime.resume();
+                    }
+                    else {
+                        shadertime.pause();
+                    }
                 }
             }
-
-    //     Button {
-    //         anchors.bottom: parent.bottom
-    //         anchors.margins: 12
-    //         id: myButton
-    //         objectName: "myButton"
-    //         x: (parent.width - width) / 2
-    //         y: (parent.height - height) / 2
-    //         text: "Record"
-    //         onClicked: {}
-
-    // }
-
-        //2 POSSIBILITY
-        // Rectangle {
-        //     width: 100; height: 100
-        //     color: "red"
-
-        //     SequentialAnimation on x {
-        //         loops: Animation.Infinite
-        //         PropertyAnimation { to: 50 }
-        //         PropertyAnimation { to: 0 }
-        //     }
-        // }
-
-        //1 POSSIBILITY
-        // ShaderEffect {
-        //     anchors.fill: parent
-        //     property variant source: sourceImg
-        //     property real frequency: 1
-        //     property real amplitude: 0.1
-        //     property real time: 0.0
-        //     NumberAnimation on time {
-        //         from: 0; to: Math.PI*2; duration: 10000; loops: Animation.Infinite
-        //     }
-        // Image {
-        //     id: sourceImg
-        //     anchors.fill: parent
-        //     source: "learning_qml/chapter5-styling/Albert_Einstein.png"
-        //     visible: false
-        // }
-        //     fragmentShader: "
-        //                     varying highp vec2 qt_TexCoord0;
-        //                     uniform sampler2D source;
-        //                     uniform lowp float qt_Opacity;
-        //                     uniform highp float frequency;
-        //                     uniform highp float amplitude;
-        //                     uniform highp float time;
-        //                     void main() {
-        //                         highp vec2 texCoord = qt_TexCoord0;
-        //                         texCoord.y = amplitude * sin(time * frequency + texCoord.x * 6.283185) + texCoord.y;
-        //                         gl_FragColor = texture2D(source, texCoord) * qt_Opacity;
-        //                     }"
-        // }
+        }
 
     //separator
         Page {
@@ -142,12 +131,11 @@ ApplicationWindow {
                 displayMarginEnd: 40
                 verticalLayoutDirection: ListView.BottomToTop
                 spacing: 12
-                model: SqlConversationModel {}
+                model: chat_model
                 delegate: Column {
+                    readonly property bool sentByMe: model.recipient !== "Me"
                     anchors.right: sentByMe ? parent.right : undefined
                     spacing: 6
-
-                    readonly property bool sentByMe: model.recipient !== "Me"
 
                     Row {
                         id: messageRow
@@ -158,7 +146,7 @@ ApplicationWindow {
                             width: Math.min(messageText.implicitWidth + 24, listView.width - messageRow.spacing)
                             height: messageText.implicitHeight + 24
                             radius: 15
-                            color: sentByMe ? "lightgrey" : "steelblue"
+                            color: sentByMe ? "lightgrey" : "#ff627c"
 
                             Label {
                                 id: messageText
@@ -201,7 +189,7 @@ ApplicationWindow {
                         text: qsTr("Send")
                         enabled: messageField.length > 0
                         onClicked: {
-                            listView.model.sendMessage("machine", messageField.text);
+                            audio_recorder.on_transcription_finished(messageField.text);
                             messageField.text = "";
                         }
                     }

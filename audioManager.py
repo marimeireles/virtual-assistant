@@ -3,6 +3,7 @@ import random
 import numpy as np
 import queue
 import threading
+import logging
 
 from deepspeech import Model
 
@@ -21,25 +22,25 @@ class InferenceThread(QObject):
 
     def __init__(self):
         super(InferenceThread, self).__init__()
-        self.inQueue = queue.Queue()
-        self.shouldQuit = False
+        self.in_queue = queue.Queue()
+        self.should_quit = False
         self.worker = threading.Thread(target=self.run)
 
-    def sendCmd(self, cmd):
+    def send_cmd(self, cmd):
         ''' Insert command in queue to be processed by the thread '''
-        self.inQueue.put(cmd)
+        self.in_queue.put(cmd)
 
     def setQuit(self):
         ''' Signal to the thread that it should stop running '''
-        self.shouldQuit = True
+        self.should_quit = True
 
     def start(self):
         self.worker.start()
 
     def run(self):
         # Creating the model
-        self.model = Model('deepspeech-0.5.1-models/output_graph.pbmm', N_FEATURES, N_CONTEXT, 'deepspeech-0.5.1-models/alphabet.txt', BEAM_WIDTH)
-        self.model.enableDecoderWithLM('deepspeech-0.5.1-models/alphabet.txt', 'deepspeech-0.5.1-models/lm.binary', 'deepspeech-0.5.1-models/trie', LM_ALPHA, LM_BETA)
+        self.model = Model("deepspeech-0.5.1-models/output_graph.pbmm", N_FEATURES, N_CONTEXT, "deepspeech-0.5.1-models/alphabet.txt", BEAM_WIDTH)
+        self.model.enableDecoderWithLM("deepspeech-0.5.1-models/alphabet.txt", "deepspeech-0.5.1-models/lm.binary", "deepspeech-0.5.1-models/trie", LM_ALPHA, LM_BETA)
         stream = None
 
         while True:
@@ -47,39 +48,38 @@ class InferenceThread(QObject):
             # periodically for a quit signal so the application doesn't hang on
             # exit.
             try:
-                cmd, *data = self.inQueue.get(timeout=0.3)
+                cmd, *data = self.in_queue.get(timeout=0.3)
             except queue.Empty:
-                if self.shouldQuit:
+                if self.should_quit:
                     break
                 # If we haven't received a quit signal just continue trying to
                 # get a command from the queue indefinitely
                 continue
 
-            if cmd == 'start':
-                print("starts data stream")
-                # 'start' means create a new stream
+            if cmd == "start":
+                # "start" means create a new stream
                 stream = self.model.setupStream()
-            elif cmd == 'data':
-                # 'data' means we received more audio data from the recorder
+                logging.debug("Starts to process sound")
+            elif cmd == "data":
+                # "data" means we received more audio data from the recorder
                 if stream:
                     self.model.feedAudioContent(stream, np.frombuffer(data[0].data(), np.int16))
-            elif cmd == 'finish':
-                # 'finish' means the caller wants the result of the current stream
+            elif cmd == "finish":
+                # "finish" means the caller wants the result of the current stream
                 transcript = self.model.finishStream(stream)
                 self.finished.emit(transcript)
                 stream = None
+                logging.debug("Finishes to process sound")
 
 
 class AudioRecorder(QWidget): #should it be like this?
-    def __init__(self, dialog, inferenceThread):
+    def __init__(self, dialog, inference_thread):
         super(AudioRecorder, self).__init__()
 
         self.dialog = dialog
+        self.inference_thread = inference_thread
 
-        self.inferenceThread = inferenceThread
-        print("self.inferenceThread ", self.inferenceThread)
-
-        self.inferenceThread.finished.connect(self.onTranscriptionFinished)
+        self.inference_thread.finished.connect(self.on_transcription_finished)
 
         self.format = QAudioFormat()
         self.format.setSampleRate(16000)
@@ -90,31 +90,32 @@ class AudioRecorder(QWidget): #should it be like this?
         self.format.setSampleType(QAudioFormat.SignedInt)
         self.recorder = QAudioInput(self.format, self)
 
-        self.isRecording = False
+        self.is_recording = False
 
     @Slot()
-    def toggleRecord(self):
-        if self.isRecording == False:
-            print('on 🌈')
-            self.isRecording = True
-            self.inferenceThread.sendCmd(('start',))
-            self.recordedMessage = self.recorder.start()
-            self.recordedMessage.readyRead.connect(self.readFromIODevide)
+    def toggle_record(self):
+        if self.is_recording == False:
+            logging.info("Capturing sound")
+            self.is_recording = True
+            self.inference_thread.send_cmd(("start",))
+            self.recorded_message = self.recorder.start()
+            self.recorded_message.readyRead.connect(self.read_from_IO_devide)
         else:
-            print('off 💀')
-            self.isRecording = False
+            logging.info("Finished sound capturing")
+            self.is_recording = False
             self.recorder.stop()
-            self.inferenceThread.sendCmd(('finish',))
+            self.inference_thread.send_cmd(("finish",))
 
     @Slot()
-    def readFromIODevide(self):
+    def read_from_IO_devide(self):
         ''' Forward available audio data to the inference thread. '''
         # self.sender() is the IO device returned by QAudioInput.start()
-        self.inferenceThread.sendCmd(('data', self.sender().readAll()))
+        self.inference_thread.send_cmd(("data", self.sender().readAll()))
 
     @Slot(str)
-    def onTranscriptionFinished(self, result):
+    def on_transcription_finished(self, result):
+        logging.info("Transcription: {result}")
+
         self.dialog.set_user_message(result)
-        print('Transcription: ', result)
         self.dialog.process_user_message()
         self.dialog.process_machine_message()

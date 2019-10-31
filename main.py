@@ -1,5 +1,6 @@
 import sys
 import os
+import logging 
 
 from PySide2.QtWidgets import QApplication
 from PySide2.QtQuick import QQuickView
@@ -8,56 +9,54 @@ from PySide2.QtGui import QGuiApplication
 from PySide2.QtSql import QSqlDatabase
 from PySide2.QtQml import QQmlApplicationEngine, qmlRegisterType
 
-from mainWindow import MainWindow
 from dialog import Dialog
 from audioManager import AudioRecorder, InferenceThread
 from sqlDialog import SqlConversationModel
+
+logging.basicConfig(filename='myapp.log', level=logging.INFO)
 
 def connectToDatabase():
     database = QSqlDatabase.database()
     if not database.isValid():
         database = QSqlDatabase.addDatabase("QSQLITE")
         if not database.isValid():
-            print("Cannot add database")
+            logger.error("Cannot add database")
 
     writeDir = QDir()
     # writeDir = QStandardPaths.writableLocation(QStandardPaths.AppDataLocation)
     if not writeDir.mkpath("."):
-        print("Failed to create writable directory")
+        logger.error("Failed to create writable directory")
 
     # Ensure that we have a writable location on all devices.
     fileName = writeDir.absolutePath() + "/chat-database.sqlite3"
     # When using the SQLite driver, open() will create the SQLite database if it doesn't exist.
     database.setDatabaseName(fileName)
     if not database.open():
-        print("Cannot open database")
+        logger.error("Cannot open database")
         QFile.remove(fileName)
 
 if __name__ == "__main__":
-
+    logging.info('Started')
     app = QApplication()
 
-    inferenceThread = InferenceThread()
-    # Start inference thread
-    inferenceThread.start()
-
-    sqlConversationModel = SqlConversationModel()
-    qmlRegisterType(SqlConversationModel, "SqlConversationModel", 1, 0, "SqlConversationModel")
     connectToDatabase()
+
+    inference_thread = InferenceThread()
+    # Start inference thread
+    inference_thread.start()
+    sql_conversation_model = SqlConversationModel()
+    dialog = Dialog(sql_conversation_model)
+    audio_recorder = AudioRecorder(dialog, inference_thread)
+
     engine = QQmlApplicationEngine()
-    # engine.rootContext().setContextProperty("sqlConversationModel", sqlConversationModel)
-
-    #I need to receive the same SqlConversationModel than I'm passing to my QML. but I'm not being able to, why?
-    #see dialog.py line 60
-    dialog = Dialog(sqlConversationModel)
-
-    audioRecorder = AudioRecorder(dialog, inferenceThread)
-    engine.rootContext().setContextProperty("audioRecorder", audioRecorder)
-    engine.rootContext().setContextProperty("toggleRecord", audioRecorder.toggleRecord())
-
+    # Export pertinent objects to QML
+    engine.rootContext().setContextProperty("chat_model", sql_conversation_model)
+    engine.rootContext().setContextProperty("audio_recorder", audio_recorder)
     engine.load(QUrl("chat.qml"))
+
     ret = app.exec_()
 
-    # # Signal to inference thread that the application is quitting
-    inferenceThread.setQuit()
+    # Signal to inference thread that the application is quitting
+    inference_thread.setQuit()
+    logging.info('Finished')
     sys.exit(ret)
