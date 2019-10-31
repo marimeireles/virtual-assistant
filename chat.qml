@@ -75,7 +75,7 @@ ApplicationWindow {
                     }
                 onClicked:
                 {
-                    audioRecorder.toggle_record();
+                    audio_recorder.toggle_record();
                     if (shadertime.paused) {
                         shadertime.resume();
                     }
