@@ -8,6 +8,7 @@ from PySide2.QtCore import QUrl, QDateTime, Qt, QStandardPaths, QDir, QStringLis
 from PySide2.QtGui import QGuiApplication
 from PySide2.QtSql import QSqlDatabase
 from PySide2.QtQml import QQmlApplicationEngine, qmlRegisterType
+from PySide2.QtWebEngineWidgets import QWebEngineView
 
 from dialog import Dialog
 from audioManager import AudioRecorder, InferenceThread
@@ -38,6 +39,7 @@ def connectToDatabase():
 if __name__ == "__main__":
     logging.info('Started')
     app = QApplication()
+    # QWebEngineView.initialize() 
 
     connectToDatabase()
 

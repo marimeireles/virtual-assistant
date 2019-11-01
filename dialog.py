@@ -52,16 +52,20 @@ class Dialog(QWidget):
         self.sqlConversationModel.send_message("machine", message, "Me")
         headers = {"Content-type": "application/json"}
         data = "{\"sender\": \"user1\", \"message\": \" " + message + "\"}"
-        self.response = requests.post("http://localhost:5005/webhooks/rest/webhook", headers=headers, data=data)
+        self.response = requests.post("http://localhost:5002/webhooks/rest/webhook", headers=headers, data=data)
 
     def process_machine_message(self):
         '''Shows machine's message and reproduce its voice'''
-        self.textResponse = json.loads(self.response.text)[0]["text"]
-        self.sqlConversationModel.send_message("Me", self.textResponse, "machine")
+        if json.loads(self.response.text):
+            self.textResponse = json.loads(self.response.text)[0]["text"]
+            print(self.textResponse)
+            self.sqlConversationModel.send_message("Me", self.textResponse, "machine")
 
-        self.tts.tts_predict(self.model, MODEL_PATH, self.textResponse, CONFIG, use_cuda, self.ap, OUT_FILE)
-        logging.debug("Machine message: {self.textResponse}")
-        QSound.play(OUT_FILE);
+            self.tts.tts_predict(self.model, MODEL_PATH, self.textResponse, CONFIG, use_cuda, self.ap, OUT_FILE)
+            logging.debug("Machine message: {self.textResponse}")
+            QSound.play(OUT_FILE);
+        else:
+            logging.error("An error happened in the Rasa Server and there is no message to display.")
 
 class TTS():
 
