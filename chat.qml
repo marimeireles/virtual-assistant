@@ -59,26 +59,25 @@ ApplicationWindow {
                                 gl_FragColor = texture2D(source, texCoord) * qt_Opacity;
                             }"
         }
-        //webview
-        // ScrollView {
-        //     width: 1280
-        //     height: 720
-        //     WebView {
-        //         id: webview
-        //         url: "http://qt-project.org"
-        //         anchors.fill: parent
-        //         onNavigationRequested: {
-        //             // detect URL scheme prefix, most likely an external link
-        //             var schemaRE = /^\w+:/;
-        //             if (schemaRE.test(request.url)) {
-        //                 request.action = WebView.AcceptRequest;
-        //             } else {
-        //                 request.action = WebView.IgnoreRequest;
-        //                 // delegate request.url here
-        //             }
-        //         }
-        //     }
-        // }
+
+//just a dirty trick in case I don't finish until Monday. You just have to click in this
+//smily face to stop the wave from waveing. click only once though :)
+        Image {
+            id: qt_bot
+            anchors.bottom: parent.bottom
+            anchors.margins: 350
+            x: (parent.width - width) / 2
+            y: (parent.height - height) / 2
+            source: "qt_bot_face.png"
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked:
+                {
+                    shadertime.pause();
+                }
+            }
+        }
 
         Image {
             id: mic
@@ -90,10 +89,6 @@ ApplicationWindow {
 
             MouseArea {
                 anchors.fill: parent
-                ShaderEffect {
-                    property variant source: sine
-                    property real frequency: 0
-                    }
                 onClicked:
                 {
                     audio_recorder.toggle_record();
