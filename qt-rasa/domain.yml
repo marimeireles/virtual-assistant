@@ -1,31 +1,44 @@
 intents:
   - greet
   - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
+  - faq_what_can_I_do
+  - faq_about_me
+  - negative
+  - pyside
 
 actions:
 - utter_greet
-- utter_cheer_up
-- utter_did_that_help
-- utter_happy
 - utter_goodbye
+- utter_faq_what_can_I_do
+- utter_pyside
+- utter_faq_about_me
+- utter_negative
+- utter_more_pyside
 
 templates:
   utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great carry on!"
+  - text: "Hello!"
 
   utter_goodbye:
   - text: "Bye"
+  - text: "Goodbye friend!"
+
+  utter_faq_what_can_I_do:
+  - text: "I can answer your questions about PySide, teach you how to contribute \
+  to the project  and talk a little bit about me."
+
+  utter_pyside:
+  - text: "Qt for Python is the project that provides the official set of Python \
+  bindings for Qt. It's also known as PySide2. Would you like to learn more about it?"
+
+  utter_faq_about_me:
+  - text: "I'm a bot created with 100% clean open source technologies. I use \
+  DeepSpeech for voice recognition, Mozilla TTS for text to voice, Rasa for my \
+  chat skills, and of course Pyside and QML for my graphic interface."
+
+  utter_more_pyside:
+  - text: "You can learn more about Qt For Python at qt.io/qt-for-python. Or you \
+  can ask questions to Cristián and Mariana here."
+
+  utter_negative:
+  - text: "Okay then. If you need me I'll be here. Forever :)"

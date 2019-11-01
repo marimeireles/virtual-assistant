@@ -54,6 +54,8 @@ if __name__ == "__main__":
     # Export pertinent objects to QML
     engine.rootContext().setContextProperty("chat_model", sql_conversation_model)
     engine.rootContext().setContextProperty("audio_recorder", audio_recorder)
+    amplitude = 0
+    engine.rootContext().setContextProperty("amplitude", amplitude)
     engine.load(QUrl("chat.qml"))
 
     ret = app.exec_()

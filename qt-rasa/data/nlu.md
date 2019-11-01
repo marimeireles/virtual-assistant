@@ -27,24 +27,47 @@
 - no way
 - not really
 
-## intent:mood_great
-- perfect
-- very good
-- great
-- amazing
-- wonderful
-- I am feeling very good
-- I am great
-- I'm good
+## intent:faq_what_can_I_do
+- what can you do
+- what can you offer me
+- possibilities
+- show me what you can do
 
-## intent:mood_unhappy
-- sad
-- very sad
-- unhappy
-- bad
-- very bad
-- awful
-- terrible
-- not very good
-- extremely sad
-- so sad
+## intent:faq_know_more_about_it
+- I'd like to know more about it
+- tell me more
+- i'm interested
+- i'd like to hear more
+- teach me
+- continue
+
+## intent:pyside
+- I'd like to know more about pyside
+- tell me more pyside
+- i'm interested in pyside
+- i'd like to hear more pyside
+- teach me about pyside
+
+## pyside_more_about_it
+- yes
+- sure
+- absolutely
+- okay
+- please
+- go on
+
+## intent:negative
+- no
+- never
+- don't go on
+- don't
+- I don't want to
+
+## intent:faq_about_me
+- i'd like to know more about you
+- tell me about you
+- about you
+- I'm curious about you
+- how do you work?
+- which technologies do you use?
+- are you open source?
