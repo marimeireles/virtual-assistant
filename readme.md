@@ -9,7 +9,7 @@ tar xvfz deepspeech-0.5.1-models.tar.gz`
 6. Download from [here](https://drive.google.com/drive/folders/1GU8WGix98WrR3ayjoiirmmbLUZzwg4n0) these two files: "config.json" and "best_model.th.tar"
 7. Create a directory inside your main directory called `tts_model` and put the recently downloaded stuff there
 8. `cd qt-rasa && rasa train`
-9. On `qt-rasa` directory run `rasa run --enable-api -p 5002 -vv --endpoints endpoints.yml`
+9. On `qt-rasa` directory run `rasa run --enable-api -p 5002 -vv`
 10. On the main directory run `python main.py` to open the GUI
 
 # License

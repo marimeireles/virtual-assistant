@@ -3,7 +3,7 @@ import QtQuick 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
 import QtGraphicalEffects 1.13
-// import QtWebKit 3.0
+import QtWebEngine 1.0
 
 //main layout
 ApplicationWindow {
@@ -46,6 +46,13 @@ ApplicationWindow {
                 id: shadertime
                 from: 0; to: Math.PI*2; duration: 10000; loops: Animation.Infinite
             }
+            MouseArea {
+                anchors.fill: parent
+                onClicked:
+                {
+                    shadertime.pause();
+                }
+            }
             fragmentShader: "
                             varying highp vec2 qt_TexCoord0;
                             uniform sampler2D source;
@@ -60,23 +67,15 @@ ApplicationWindow {
                             }"
         }
 
-//just a dirty trick in case I don't finish until Monday. You just have to click in this
-//smily face to stop the wave from waveing. click only once though :)
-        Image {
-            id: qt_bot
+        WebEngineView {
+            id: internet
+            width: 639
+            height: 500
             anchors.bottom: parent.bottom
-            anchors.margins: 350
+            anchors.margins: 250
             x: (parent.width - width) / 2
             y: (parent.height - height) / 2
-            source: "qt_bot_face.png"
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked:
-                {
-                    shadertime.pause();
-                }
-            }
+            url: searchResult
         }
 
         Image {
@@ -198,6 +197,11 @@ ApplicationWindow {
                         Layout.fillWidth: true
                         placeholderText: qsTr("Compose message")
                         wrapMode: TextArea.Wrap
+                        onEditingFinished:
+                            if(messageField.text.toString().match("^.*earch.*") == messageField.text.toString())
+                            {
+                                internet.url = qsTr("http://www.google.com/search?q=" + messageField.text + "&btnI")
+                            }
                     }
 
                     Button {

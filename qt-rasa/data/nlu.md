@@ -48,7 +48,7 @@
 - i'd like to hear more pyside
 - teach me about pyside
 
-## pyside_more_about_it
+## intent:pyside_more_about_it
 - yes
 - sure
 - absolutely
@@ -56,12 +56,28 @@
 - please
 - go on
 
+## intent:faq_how_to_contribute
+- how can I contribute to this project
+- contibution
+- I want to become a contributor
+- tell me how to contribute
+- contributions
+- contributor
+
 ## intent:negative
 - no
+- no, I don't
+- I don't want to hear more about Pyside
 - never
 - don't go on
 - don't
 - I don't want to
+- no, thank you
+- don't search
+- I'm not interested
+- please don't make any searches
+- I don't want to
+- no searches
 
 ## intent:faq_about_me
 - i'd like to know more about you

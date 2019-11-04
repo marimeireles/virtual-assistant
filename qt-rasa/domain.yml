@@ -5,6 +5,7 @@ intents:
   - faq_about_me
   - negative
   - pyside
+  - faq_how_to_contribute
 
 actions:
 - utter_greet
@@ -14,6 +15,12 @@ actions:
 - utter_faq_about_me
 - utter_negative
 - utter_more_pyside
+- utter_not_sure
+- utter_faq_how_to_contribute
+
+slots:
+   search:
+      type: text
 
 templates:
   utter_greet:
@@ -25,7 +32,8 @@ templates:
 
   utter_faq_what_can_I_do:
   - text: "I can answer your questions about PySide, teach you how to contribute \
-  to the project  and talk a little bit about me."
+  to the project, talk a little bit about me and do internet searches for you. \
+  What would you like to do?"
 
   utter_pyside:
   - text: "Qt for Python is the project that provides the official set of Python \
@@ -42,3 +50,14 @@ templates:
 
   utter_negative:
   - text: "Okay then. If you need me I'll be here. Forever :)"
+
+  utter_not_sure:
+    - text: "I don't understand what you mean. Would you like me to look it up \
+    in the 🌈 internet 🌈 for you? If yes, please say \"Search\" and what you \
+    want me to search."
+
+  utter_faq_how_to_contribute:
+  - text: "If you are a developer you can fix bugs or help us to translate our \
+  examples and code snippets from C++ to Python. If you're a designer \
+  you can help us improve the looks of our page. You're welcome to join the PySide \
+  channel at FreeNode on IRC, Gitter or Matrix."

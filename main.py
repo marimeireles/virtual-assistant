@@ -9,6 +9,7 @@ from PySide2.QtGui import QGuiApplication
 from PySide2.QtSql import QSqlDatabase
 from PySide2.QtQml import QQmlApplicationEngine, qmlRegisterType
 from PySide2.QtWebEngineWidgets import QWebEngineView
+from PySide2.QtWebEngine import QtWebEngine
 
 from dialog import Dialog
 from audioManager import AudioRecorder, InferenceThread
@@ -54,8 +55,11 @@ if __name__ == "__main__":
     # Export pertinent objects to QML
     engine.rootContext().setContextProperty("chat_model", sql_conversation_model)
     engine.rootContext().setContextProperty("audio_recorder", audio_recorder)
-    amplitude = 0
-    engine.rootContext().setContextProperty("amplitude", amplitude)
+    # Initial webpage that will show to the user
+    searchResult = "https://www.qt.io/qt-for-python"
+    engine.rootContext().setContextProperty("searchResult", searchResult)
+
+    QtWebEngine.initialize();
     engine.load(QUrl("chat.qml"))
 
     ret = app.exec_()
