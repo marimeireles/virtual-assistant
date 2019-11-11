@@ -1,82 +1,176 @@
 actions:
+  
 - utter_faq_about_me
+  
 - utter_faq_android_ios
+  
 - utter_faq_embedded
+  
 - utter_faq_how_install
+  
 - utter_faq_how_to_contribute
+  
 - utter_faq_shiboken
+  
 - utter_faq_what_can_I_do
+  
 - utter_faq_why_two
+  
 - utter_goodbye
+  
 - utter_greet
+  
 - utter_more_pyside
+  
 - utter_negative
+  
 - utter_not_sure
+- utter_qt
 - utter_pyside
+- utter_python
 - utter_welcome
+  
 intents:
+  
 - faq_about_me
+  
 - faq_what_can_I_do
+  
 - not_sure
+  
 - faq_android_ios
+  
 - faq_embedded
+  
 - pyside_more_about_it
+  
 - goodbye
+  
 - faq_why_two
+  
 - welcome
+  
 - pyside
+  
 - greet
+  
 - negative
+  
 - internet_search
+  
 - faq_know_more_about_it
+  
 - faq_how_to_contribute
+  
 - faq_shiboken
+  
 - faq_how_install
+
+- python
+- qt
+  
 templates:
+  
   utter_faq_about_me:
+  
   - text: I'm a bot created with 100% clean open source technologies. I use DeepSpeech
+  
       for voice recognition, Mozilla TTS for text to voice, Rasa for my chat skills,
+  
       and of course Pyside and QML for my graphic interface.
+  
   utter_faq_android_ios:
+  
   - text: At the moment there is no support for mobile platforms. It will be looked
+  
       into in the future.
+  
   utter_faq_embedded:
+  
   - text: Not at the moment. It will be looked into in the future.
+  
   utter_faq_how_install:
+  
   - text: It's easy to start using PySide2, you just have to open a terminal and type
+  
       pip install PySide2 and you're ready to go!
+  
   utter_faq_how_to_contribute:
+  
   - text: If you are a developer you can fix bugs or help us to translate our examples
+  
       and code snippets from C++ to Python. If you're a designer you can help us improve
+  
       the looks of our page. You're welcome to join the PySide channel at Freenode
+  
       on IRC, Gitter or Matrix. Just look for qt-pyside.
+  
   utter_faq_shiboken:
+  
   - text: Shiboken is the Python binding generator that Qt for Python uses to create
+  
       the PySide module, in other words, is the system we use to expose the Qt C++
+  
       API to Python.
+  
   utter_faq_what_can_I_do:
+  
   - text: I can answer your questions about Qt for Python, teach you how to contribute
+  
       to the project, talk a little bit about me and do internet searches for you.
+  
       What would you like to do?
+  
   utter_faq_why_two:
+  
   - text: Since PySide was developed for Qt4, when the port was made to support Qt5,
+  
       the name was changed to PySide2 to imply that it was a newer version.
+  
   utter_goodbye:
+  
   - text: Bye
+  
   - text: Goodbye friend!
+  
   utter_greet:
+  
   - text: Hello! I'm the Qt for Python chatbot would you like to know more about the
+  
       project? Or would you like to know what I can do for you?
+  
   utter_more_pyside:
+  
   - text: You can learn more about Qt For Python at qt.io/qt-for-python. Or you can
+  
       ask questions to Cristi\xE1n and Mariana here.
+  
   utter_negative:
+  
   - text: Okay then. I'll be here if you need me!
+  
   utter_not_sure:
+  
   - text: I don't understand what you mean. Would you like me to look it up in the
+  
       internet for you? If yes, please say "Search" and what you want me to search.
+  
   utter_pyside:
+  
   - text: Qt for Python is the project that provides the official set of Python bindings
+  
       for Qt. It's also known as PySide2. Would you like to learn more about it?
+  
   utter_welcome:
+  
   - text: You're welcome!
+
+  utter_python:
+
+  - text: Python is an interpreted, object-oriented, high-level programming language with dynamic semantics.
+
+  utter_qt:
+
+  - text: Is a free and open-source widget toolkit for creating graphical user interfaces as well as cross-platform
+      applications that run on various software and hardware platforms such as Linux, Windows, macOS, Android or embedded
+      systems with little or no change
