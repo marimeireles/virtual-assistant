@@ -278,9 +278,13 @@
     - utter_faq_about_me
 
 ##python
+  
 * python
+  
   - utter_python
 
 ##qt
+  
 * qt
+  
   - utter_qt
