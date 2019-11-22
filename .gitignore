@@ -1,3 +1,4 @@
+qt-rasa/rasa_core.log
 TTS/
 tts_model/
 tts_out.wav
@@ -5,4 +6,9 @@ __pycache__/
 .python-version
 deepspeech-0.5.1-models/
 env/
-*.DS_Store
+chat-database.sqlite3
+qt-rasa/models
+qt-rasa/__pycache__/
+qt-rasa/.DS_Store
+.DS_Store
+qt-rasa/rasa_core.log
