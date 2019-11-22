@@ -25,6 +25,11 @@
 - tell me about you
 - what do you like to do
 - how can I find out more about you
+- what are you
+- who are you
+- where do you come from
+- where do you live?
+- are you alive?
 
 ## intent:faq_android_ios
 - does it run on android and ios

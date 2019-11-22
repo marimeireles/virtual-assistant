@@ -1,12 +1,8 @@
 TTS/
 tts_model/
 tts_out.wav
-vi/
 __pycache__/
 .python-version
 deepspeech-0.5.1-models/
-rasa-demo/
 env/
 *.DS_Store
-
-test.py
