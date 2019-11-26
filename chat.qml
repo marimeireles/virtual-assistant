@@ -51,13 +51,6 @@ ApplicationWindow {
     width: 1280
     height: 960
     visible: true
-    Label {
-        id: pageTitle
-        text: ""
-        font.pixelSize: 20
-        anchors.centerIn: parent
-    }
-
 //widgets layout
     Page {
         width: 639
@@ -165,7 +158,6 @@ ApplicationWindow {
             }
         }
     }
-
 //chat layout
     Page {
         width: 639
@@ -239,7 +231,7 @@ ApplicationWindow {
                         onEditingFinished:
                             if (messageField.text.toString().match("^[a-zA-Z]+earch.*") == messageField.text.toString())
                             {
-                                internet.url = qsTr("http://www.google.com/search?q=" + messageField.text + "&btnI")
+                                internet.url = qsTr("https://duckduckgo.com/?q=!" + messageField.text)
                             }
                     }
 

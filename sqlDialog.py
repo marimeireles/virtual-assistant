@@ -75,6 +75,8 @@ class SqlConversationModel(QSqlTableModel):
         self.setSort(2, Qt.DescendingOrder)
         self.setEditStrategy(QSqlTableModel.OnManualSubmit)
 
+        self.recipient = ""
+
         self.select()
         logging.debug("Table was loaded successfully.")
 
