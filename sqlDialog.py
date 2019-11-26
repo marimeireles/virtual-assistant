@@ -78,10 +78,6 @@ class SqlConversationModel(QSqlTableModel):
         self.select()
         logging.debug("Table was loaded successfully.")
 
-
-    def recipient():
-        return self.recipient
-
     def setRecipient(self, recipient):
         if recipient == self.recipient:
             pass
@@ -91,7 +87,6 @@ class SqlConversationModel(QSqlTableModel):
         filterString = ("(recipient = '{}' AND author = 'Me') OR (recipient = 'Me' AND author='{}')").format(self.recipient)
         setFilter(filterString)
         select()
-
 
     def data(self, index, role):
         if role < Qt.UserRole:
