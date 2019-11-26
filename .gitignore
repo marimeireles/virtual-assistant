@@ -12,4 +12,5 @@ qt-rasa/models
 qt-rasa/__pycache__/
 qt-rasa/.DS_Store
 .DS_Store
+rasa_core.log
 qt-rasa/rasa_core.log

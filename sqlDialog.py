@@ -67,7 +67,6 @@ def createTable():
 
 
 class SqlConversationModel(QSqlTableModel):
-    recipientChanged = Signal()
     def __init__(self, parent=None):
         super(SqlConversationModel, self).__init__(parent)
 
@@ -76,7 +75,6 @@ class SqlConversationModel(QSqlTableModel):
         self.setSort(2, Qt.DescendingOrder)
         self.setEditStrategy(QSqlTableModel.OnManualSubmit)
 
-        recipient = Property(str, self.recipient, notify=self.recipientChanged)
         self.select()
         logging.debug("Table was loaded successfully.")
 
@@ -94,7 +92,6 @@ class SqlConversationModel(QSqlTableModel):
         setFilter(filterString)
         select()
 
-        emit(recipientChanged())
 
     def data(self, index, role):
         if role < Qt.UserRole:
