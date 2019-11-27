@@ -240,7 +240,7 @@ ApplicationWindow {
                         onEditingFinished:
                             if (messageField.text.toString().match("^[a-zA-Z]+earch.*") == messageField.text.toString())
                             {
-                                internet.url = qsTr("http://www.google.com/search?q=" + messageField.text + "&btnI")
+                                internet.url = qsTr("https://duckduckgo.com/?q=!ducky " + messageField.text)
                             }
                     }
 
