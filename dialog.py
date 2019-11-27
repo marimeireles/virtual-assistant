@@ -62,9 +62,8 @@ from PySide2.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel
 from PySide2.QtCore import Signal, QUrl, Qt
 from PySide2.QtMultimedia import QSound
 
-
-MODEL_PATH = os.path.abspath("./tts_model/best_model.pth.tar")
-CONFIG_PATH = os.path.abspath("./tts_model/config.json")
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "tts_model/best_model.pth.tar")
+CONFIG_PATH = os.path.join(os.path.dirname(__file__), "tts_model/config.json")
 OUT_FILE = "tts_out.wav"
 CONFIG = load_config(CONFIG_PATH)
 use_cuda = False

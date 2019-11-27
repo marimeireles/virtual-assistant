@@ -79,8 +79,8 @@ class InferenceThread(QObject):
 
     def run(self):
         # Creating the model
-        self.model = Model(os.path.abspath("./deepspeech-0.5.1-models/output_graph.pbmm"), N_FEATURES, N_CONTEXT, os.path.abspath("./deepspeech-0.5.1-models/alphabet.txt"), BEAM_WIDTH)
-        self.model.enableDecoderWithLM(os.path.abspath("deepspeech-0.5.1-models/alphabet.txt"), os.path.abspath("deepspeech-0.5.1-models/lm.binary"), os.path.abspath("deepspeech-0.5.1-models/trie"), LM_ALPHA, LM_BETA)
+        self.model = Model( os.path.join(os.path.dirname(__file__), "deepspeech-0.5.1-models/output_graph.pbmm"), N_FEATURES, N_CONTEXT,  os.path.join(os.path.dirname(__file__), "deepspeech-0.5.1-models/alphabet.txt"), BEAM_WIDTH)
+        self.model.enableDecoderWithLM( os.path.join(os.path.dirname(__file__), "deepspeech-0.5.1-models/alphabet.txt"),  os.path.join(os.path.dirname(__file__), "deepspeech-0.5.1-models/lm.binary"),  os.path.join(os.path.dirname(__file__), "deepspeech-0.5.1-models/trie"), LM_ALPHA, LM_BETA)
         stream = None
 
         while True:
