@@ -99,7 +99,8 @@ if __name__ == "__main__":
     engine.rootContext().setContextProperty("searchResult", searchResult)
 
     QtWebEngine.initialize();
-    engine.load(QUrl("chat.qml"))
+    qmlFile = os.path.join(os.path.dirname(__file__), "chat.qml")
+    engine.load(QUrl.fromLocalFile(os.path.abspath(qmlFile)))
 
     ret = app.exec_()
 
