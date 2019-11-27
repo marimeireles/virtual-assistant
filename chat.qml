@@ -38,7 +38,6 @@
 **
 ****************************************************************************/
 
-import QtQuick.Window 2.2
 import QtQuick 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
@@ -52,13 +51,6 @@ ApplicationWindow {
     width: 1280
     height: 960
     visible: true
-    Label {
-        id: pageTitle
-        text: ""
-        font.pixelSize: 20
-        anchors.centerIn: parent
-    }
-
 //widgets layout
     Page {
         width: 639
@@ -166,7 +158,6 @@ ApplicationWindow {
             }
         }
     }
-
 //chat layout
     Page {
         width: 639
