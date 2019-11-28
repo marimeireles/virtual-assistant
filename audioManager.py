@@ -47,7 +47,9 @@ import logging
 
 from deepspeech import Model
 
+#remove url
 from PySide2.QtCore import QObject, Signal, Slot, QUrl
+#remove widget stuff
 from PySide2.QtWidgets import QPushButton, QWidget, QVBoxLayout, QSpacerItem
 from PySide2.QtMultimedia import QAudioInput, QAudioFormat
 
