@@ -41,18 +41,12 @@
 import sys
 import os
 import logging
-#I think I'll be able to remove qapplication
-from PySide2.QtWidgets import QApplication
 from PySide2.QtQuick import QQuickView
-#remove datetime qt qstandr QStringListModel
-from PySide2.QtCore import QUrl, QDateTime, Qt, QStandardPaths, QDir, QStringListModel
+from PySide2.QtCore import QUrl, QDir
 
 from PySide2.QtGui import QGuiApplication
 from PySide2.QtSql import QSqlDatabase
-#remove qmlreg
-from PySide2.QtQml import QQmlApplicationEngine, qmlRegisterType
-#remove this line
-from PySide2.QtWebEngineWidgets import QWebEngineView
+from PySide2.QtQml import QQmlApplicationEngine
 from PySide2.QtWebEngine import QtWebEngine
 
 from dialog import Dialog
@@ -83,7 +77,7 @@ def connectToDatabase():
 
 if __name__ == "__main__":
     logging.info('Started')
-    app = QApplication()
+    app = QGuiApplication()
 
     connectToDatabase()
 

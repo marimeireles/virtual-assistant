@@ -39,6 +39,7 @@
 #############################################################################
 
 import sys
+import os
 import random
 import numpy as np
 import queue
@@ -47,10 +48,7 @@ import logging
 
 from deepspeech import Model
 
-#remove url
-from PySide2.QtCore import QObject, Signal, Slot, QUrl
-#remove widget stuff
-from PySide2.QtWidgets import QPushButton, QWidget, QVBoxLayout, QSpacerItem
+from PySide2.QtCore import QObject, Signal, Slot
 from PySide2.QtMultimedia import QAudioInput, QAudioFormat
 
 N_FEATURES = 25
@@ -114,7 +112,7 @@ class InferenceThread(QObject):
                 logging.debug("Finishes to process sound")
 
 
-class AudioRecorder(QWidget):
+class AudioRecorder(QObject):
     def __init__(self, dialog, inference_thread):
         super(AudioRecorder, self).__init__()
 

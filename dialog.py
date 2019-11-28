@@ -57,8 +57,7 @@ from TTS.utils.text import text_to_sequence
 from TTS.utils.synthesis import synthesis
 from utils.text.symbols import symbols, phonemes
 from TTS.utils.visual import visualize
-#remove widget stuff
-from PySide2.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel
+
 from PySide2.QtCore import Signal, QUrl, Qt
 from PySide2.QtMultimedia import QSound
 
@@ -67,9 +66,8 @@ CONFIG_PATH = os.path.join(os.path.dirname(__file__), "tts_model/config.json")
 OUT_FILE = "tts_out.wav"
 CONFIG = load_config(CONFIG_PATH)
 use_cuda = False
-#remove widget stuff
 
-class Dialog(QWidget):
+class Dialog():
     def __init__(self, sqlConversationModel):
         super(Dialog, self).__init__()
         self.sqlConversationModel = sqlConversationModel
@@ -118,28 +116,19 @@ class TTS():
 
     def load_tts_model(self):
         CONFIG = load_config(CONFIG_PATH)
-        use_cuda = False
 
-        num_chars = len(phonemes) if CONFIG.use_phonemes else len(symbols)
-        model = Tacotron(num_chars, CONFIG.embedding_size, CONFIG.audio["num_freq"], CONFIG.audio["num_mels"], CONFIG.r, attn_windowing=False)
+        model = Tacotron(len(phonemes), CONFIG.embedding_size, CONFIG.audio["num_freq"], CONFIG.audio["num_mels"], CONFIG.r, attn_windowing=False)
 
         # load the audio processor
-        # CONFIG.audio["power"] = 1.3
-        CONFIG.audio["preemphasis"] = 0.97
         ap = AudioProcessor(**CONFIG.audio)
 
         # load model state
-        if use_cuda:
-            cp = torch.load(MODEL_PATH)
-        else:
-            cp = torch.load(MODEL_PATH, map_location=lambda storage, loc: storage)
+        cp = torch.load(MODEL_PATH, map_location=lambda storage, loc: storage)
 
         # load the model
         model.load_state_dict(cp["model"])
-        if use_cuda:
-            model.cuda()
 
-        model.decoder.max_decoder_steps = 1000
+        model.decoder.max_decoder_steps = 650
         return model, ap, MODEL_PATH, CONFIG, use_cuda
 
     def tts_predict(self, model, MODEL_PATH, sentence, CONFIG, use_cuda, ap, OUT_FILE):
