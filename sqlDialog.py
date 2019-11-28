@@ -42,6 +42,7 @@ import datetime
 import logging
 
 from PySide2.QtSql import QSqlDatabase, QSqlQuery, QSqlTableModel, QSqlRecord
+#remove qobj, property, signal, qbytearr
 from PySide2.QtCore import QObject, Qt, Property, Slot, Signal, QByteArray
 
 from dialog import Dialog

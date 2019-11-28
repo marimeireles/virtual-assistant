@@ -57,7 +57,7 @@ from TTS.utils.text import text_to_sequence
 from TTS.utils.synthesis import synthesis
 from utils.text.symbols import symbols, phonemes
 from TTS.utils.visual import visualize
-
+#remove widget stuff
 from PySide2.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel
 from PySide2.QtCore import Signal, QUrl, Qt
 from PySide2.QtMultimedia import QSound
@@ -67,6 +67,7 @@ CONFIG_PATH = os.path.join(os.path.dirname(__file__), "tts_model/config.json")
 OUT_FILE = "tts_out.wav"
 CONFIG = load_config(CONFIG_PATH)
 use_cuda = False
+#remove widget stuff
 
 class Dialog(QWidget):
     def __init__(self, sqlConversationModel):
