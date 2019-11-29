@@ -16,6 +16,8 @@ actions:
 - utter_pyside
 - utter_python
 - utter_welcome
+- utter_glass_water
+- utter_do_nothing
 
 intents:
 - faq_about_me
@@ -30,15 +32,23 @@ intents:
 - pyside
 - greet
 - negative
-- internet_search
 - faq_know_more_about_it
 - faq_how_to_contribute
 - faq_shiboken
 - faq_how_install
 - python
 - qt
+- glass_water
+- search
 
 templates:
+
+  utter_do_nothing:
+  - text:
+
+  utter_glass_water:
+  - text: I'm afraid I can't do that Dave.
+
   utter_faq_about_me:
   - text: I'm a bot created with 100% clean open source technologies. I use DeepSpeech
       for voice recognition, Mozilla TTS for text to voice, Rasa for my chat skills,
@@ -93,8 +103,7 @@ templates:
       internet for you? If yes, please say "Search" and what you want me to search.
 
   utter_pyside:
-  - text: Qt for Python is the project that provides the official set of Python bindings
-      for Qt. It's also known as PySide2. Would you like to learn more about it?
+  - text: PySide2 is a Python binding of the cross-platform GUI toolkit Qt. Would you like to learn more about it?
 
   utter_welcome:
   - text: You're welcome!

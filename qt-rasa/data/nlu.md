@@ -1,3 +1,13 @@
+##intent:search
+- search
+- Search
+
+## intent:glass_water
+- glass of water
+- can I get a glass of water?
+- water please?
+- give me water, robot
+
 ## intent:affirm
 - yes
 - indeed
@@ -45,11 +55,10 @@
 - can i use it on micro controlers
 
 ## intent:faq_how_install
-- how to start using pyside
-- how to install pyside
-- what about the installation
 - installation
 - install
+- how to use
+- download
 
 ## intent:faq_how_to_contribute
 - how can I contribute to this project
@@ -99,14 +108,6 @@
 - hello
 - hello
 
-## intent:internet_search
-- internet search
-- search on the web
-- search
-- look it up in the internet
-- internet
-- search the last britney song on youtube for me
-
 ## intent:negative
 - no
 - no, I don't
@@ -121,26 +122,11 @@
 - no
 
 ## intent:not_sure
-- weather
-- result
-- video
-- music
-- youtube
-- what's
-- whats
-- what
-- which
-- who
-- would
-- how
-- what is the
-- facebook
-- social network
-- how are you doing
-- who built you
+- what 
+- how 
+- who 
 - have you ever seen
 - what is your favorite color
-- whats your favorite
 - i dont know, surprise me
 - do something special
 - bored
