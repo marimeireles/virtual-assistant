@@ -102,12 +102,8 @@ templates:
       If yes, please say "Search" and what you want me to search.
 
   utter_pyside:
-<<<<<<< HEAD
-  - text: PySide2 is a Python binding of the cross-platform GUI toolkit Qt. Would you like to learn more about it?
-=======
   - text: PySide2 is a Python binding of the cross-platform GUI toolkit Qt. Would you like to learn
       more about it?
->>>>>>> e5aff8b... Fixed the message showing up everytime you search for something problem
 
   utter_welcome:
   - text: You're welcome!
