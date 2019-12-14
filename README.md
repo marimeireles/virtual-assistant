@@ -1,6 +1,6 @@
 # Project aestethics
 
-![aesthetics](https://psychonautgirl.space/images/interface.png)
+![aesthetics](https://psychonautgirl.space/images/project_aesthetics.png)
 
 # How to use:
 
