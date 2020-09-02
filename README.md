@@ -22,7 +22,7 @@
 9. On `qt-rasa` directory run `rasa run --enable-api -p 5002 -vv` to start the NLP server
 10. On the main directory run `python main.py` to open the GUI
 
-## Window users:
+## Windows users:
 
 ### Setup
 
